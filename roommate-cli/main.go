@@ -24,14 +24,14 @@ func main() {
 				Body:     "Can you pick some up?",
 				Title:    "Hey buddy!",
 				Subtitle: "We're out of your milk.",
-				Image:    "/Users/mikeflynn/Desktop/roommate_img/angry.ico",
+				Image:    "../img/angry.ico",
 			}
 
 			n.notify()
 		} else if command == "wallpaper" {
-			changeWallpaper("/Users/mikeflynn/Desktop/roommate_img/wallpaper.jpg")
+			changeWallpaper("../img/wallpaper.jpg")
 		} else if command == "quicklook" {
-			quickLook("/Users/mikeflynn/Desktop/roommate_img/milk.jpg")
+			quickLook("../img/milk.jpg")
 		}
 	}
 }
