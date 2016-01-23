@@ -3,23 +3,42 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"flag"
 	"fmt"
+	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"os/exec"
 	"regexp"
+	"strconv"
 	"strings"
+	"time"
 
 	"github.com/deckarep/gosx-notifier"
 )
 
 func main() {
-	repl()
+	startRepl := flag.Bool("repl", false, "Start an interactive repl for command testing.")
+	startService := flag.Bool("service", false, "Start the app watching and random task service.")
+	flag.Parse()
+
+	if *startRepl {
+		repl()
+	} else if *startService {
+		service()
+	} else if len(os.Args) > 1 {
+		args := os.Args[1:]
+		parseCommand(args)
+	} else {
+		fmt.Println("You didn't tell me to do anything. Try -help\n")
+	}
 }
 
-//func service() {
-//
-//}
+func service() {
+	fmt.Println("Starting super annoying service in the background.")
+	watchPs()
+}
 
 func repl() {
 	var line string
@@ -27,7 +46,7 @@ func repl() {
 
 	fmt.Printf("Computer Roommate Terminal\n" +
 		"==========================\n" +
-		"Type \"help\" for a list of commands.\n\n")
+		"Type \"commands\" for a list of commands.\n\n")
 
 	for {
 		fmt.Printf("> ")
@@ -38,67 +57,143 @@ func repl() {
 		}
 
 		args := strings.Split(strings.TrimSpace(line), " ")
-
-		switch {
-		case args[0] == "notify":
-			n := &Notification{
-				Body:     "Can you pick some up?",
-				Title:    "Hey buddy!",
-				Subtitle: "We're out of your milk.",
-				Image:    "./img/angry.ico",
-			}
-
-			err := n.notify()
-			if err != nil {
-				fmt.Println(err.Error())
-			}
-
-			fmt.Println("Notification sent.")
-		case args[0] == "wallpaper" && len(args) > 1:
-			changeWallpaper(args[1])
-
-			fmt.Println("Wallpaper updated.")
-		case args[0] == "quicklook" && len(args) > 1:
-			_, err := quickLook(args[1])
-			if err != nil {
-				fmt.Println(err.Error())
-			}
-
-			fmt.Println("Quicklook popped.")
-		case args[0] == "startaudio" && len(args) > 1:
-			go startAudio(args[1])
-
-			fmt.Println("Audio playing.")
-		case args[0] == "stopaudio":
-			_, err := stopAudio()
-			if err != nil {
-				fmt.Println(err.Error())
-			}
-
-			fmt.Println("Audio stopped.")
-		case args[0] == "file" && len(args) > 1:
-			_, err := openFile(args[1])
-			if err != nil {
-				fmt.Println(err.Error())
-			}
-
-			fmt.Println("That thing opened.")
-		case args[0] == "help":
-			fmt.Println("Valid commands:\n" +
-				"notify\n" +
-				"wallpaper <absolute path to image>\n" +
-				"quicklook <absolute path to image>\n" +
-				"file <absolute path to file>\n")
-		case args[0] == "quit":
-			fmt.Println("Bye!")
-			os.Exit(0)
-		default:
-			fmt.Println("Invalid command. Try help for a command list.")
-		}
+		parseCommand(args)
 	}
 }
 
+func parseCommand(args []string) {
+	var err error
+
+	switch {
+	case args[0] == "notify":
+		n := &Notification{
+			Body:     "Can you pick some up?",
+			Title:    "Hey buddy!",
+			Subtitle: "We're out of your milk.",
+			Image:    "./img/angry.ico",
+		}
+
+		err := n.notify()
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		fmt.Println("Notification sent.")
+	case args[0] == "wallpaper" && len(args) > 1:
+		changeWallpaper(args[1])
+
+		fmt.Println("Wallpaper updated.")
+	case args[0] == "openapp" && len(args) > 1:
+		if len(args) > 2 && args[2] != "0" {
+			openApp(args[1], true)
+		} else {
+			openApp(args[1], false)
+		}
+
+		fmt.Println("App opened.")
+	case args[0] == "closeapp" && len(args) > 1:
+		closeApp(args[1])
+
+		fmt.Println("App closed.")
+	case args[0] == "quicklook" && len(args) > 1:
+		_, err := quickLook(args[1])
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		fmt.Println("Quicklook popped.")
+	case args[0] == "startaudio" && len(args) > 1:
+		go startAudio(args[1])
+
+		fmt.Println("Audio playing.")
+	case args[0] == "stopaudio":
+		_, err := stopAudio()
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		fmt.Println("Audio stopped.")
+	case args[0] == "openfile" && len(args) > 1:
+		_, err := openFile(args[1])
+		if err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		fmt.Println("That thing opened.")
+	case args[0] == "makedir" && len(args) > 1:
+		if err := createDir(args[1]); err != nil {
+			fmt.Println(err.Error())
+			return
+		}
+
+		fmt.Println("Directory created.")
+	case args[0] == "makefile" && len(args) > 1:
+		var count uint64 = 0
+		if len(args) > 2 {
+			if count, err = strconv.ParseUint(args[2], 10, 64); err != nil {
+				fmt.Println(err.Error())
+				return
+			}
+		}
+		if err := createFile(args[1], count); err != nil {
+			fmt.Println(err.Error())
+		} else {
+			fmt.Println("Directory created.")
+		}
+	case args[0] == "movefile" && len(args) > 2:
+		if err := moveFile(args[1], args[2]); err != nil {
+			fmt.Println(err.Error())
+		}
+	case args[0] == "brightness" && len(args) > 1:
+		if output, err := storedActionScript("brightness.applescript", args[1]); err != nil {
+			fmt.Println(err.Error())
+		} else {
+			fmt.Println(output)
+		}
+	case args[0] == "alert" && len(args) > 4:
+		if output, err := storedActionScript("alert.applescript", args[1], args[2], asPath(args[3])); err != nil {
+			fmt.Println(err.Error())
+		} else {
+			fmt.Println(output)
+		}
+	case args[0] == "commands":
+		fmt.Println("Valid commands:\n" +
+			"notify\n" +
+			"wallpaper <absolute path to image>\n" +
+			"quicklook <absolute path to image>\n" +
+			"movefile <absolute path to source> <absolute path to desitination>\n" +
+			"openfile <absolute path to file>\n" +
+			"makedir <absolute path to new directory>\n" +
+			"makefile <absolute path to new file> <number of chars to fill it with>\n" +
+			"openapp <app name> <background flag>\n" +
+			"closeapp <app name>\n" +
+			"brightness <brightness level 0 - 1; ex: 0.3>\n" +
+			"alert <body> <title> <icon path>\n" +
+			"startaudio <absolute path to audio>\n" +
+			"stopaudio\n")
+	case args[0] == "quit":
+		fmt.Println("Bye!")
+		os.Exit(0)
+	default:
+		fmt.Println("Invalid command. Try \"commands\" for a command list.")
+	}
+}
+
+func asPath(path string) string {
+	if strings.HasPrefix(path, "/") {
+		path = "Macintosh HD" + path
+	}
+
+	return strings.Replace(path, "/", ":", -1)
+}
+
 func watchPs() {
+	found := map[string]bool{}
+
 	for {
 		cmd := exec.Command("ps", "-ax")
 		var out bytes.Buffer
@@ -110,11 +205,72 @@ func watchPs() {
 
 		list := out.String()
 		if matched, err := regexp.MatchString("MacOS/iTunes\\b", list); err == nil && matched {
-			//notify()
+			name := "iTunes"
+			if _, ok := found[name]; !ok {
+				found[name] = true
+				go func() {
+					time.Sleep(1000 * time.Millisecond * 3)
+
+					// Notify.
+					n := &Notification{
+						Body:     "Sorry, bro",
+						Title:    "I'm using " + name + "!",
+						Subtitle: "Give me a second.",
+						Image:    "./img/angry.ico",
+					}
+					n.notify()
+
+					// Close it.
+					closeApp("iTunes")
+					delete(found, name)
+				}()
+			}
 		}
 
 		if matched, err := regexp.MatchString("MacOS/Safari\\b", list); err == nil && matched {
-			//notify()
+			name := "Safari"
+			if _, ok := found[name]; !ok {
+				found[name] = true
+				go func() {
+					time.Sleep(1000 * time.Millisecond * 3)
+
+					// Notify.
+					n := &Notification{
+						Body:     "Sorry, bro",
+						Title:    "I'm using " + name + "!",
+						Subtitle: "Give me a second.",
+						Image:    "./img/angry.ico",
+					}
+					n.notify()
+
+					// Close it.
+					closeApp("Safari")
+					delete(found, name)
+				}()
+			}
+		}
+
+		if matched, err := regexp.MatchString("MacOS/Keynote\\b", list); err == nil && matched {
+			name := "Keynote"
+			if _, ok := found[name]; !ok {
+				found[name] = true
+				go func() {
+					time.Sleep(1000 * time.Millisecond * 3)
+
+					// Notify.
+					n := &Notification{
+						Body:     "Sorry, bro",
+						Title:    "I'm using " + name + "!",
+						Subtitle: "Give me a second.",
+						Image:    "./img/angry.ico",
+					}
+					n.notify()
+
+					// Close it.
+					closeApp("Keynote")
+					delete(found, name)
+				}()
+			}
 		}
 	}
 }
@@ -144,6 +300,31 @@ func (this *Notification) notify() error {
 	note.Sound = gosxnotifier.Basso
 
 	return note.Push()
+}
+
+func createFile(filePath string, charCount uint64) error {
+	var letters = []rune("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+	var f *os.File
+	var err error
+
+	b := make([]rune, charCount)
+	for i := range b {
+		b[i] = letters[rand.Intn(len(letters))]
+	}
+
+	if f, err = os.Create(filePath); err != nil {
+		return err
+	}
+
+	if _, err = f.WriteString(string(b)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func createDir(dirPath string) error {
+	return os.MkdirAll(dirPath, 0777)
 }
 
 func stopAudio() (string, error) {
@@ -185,8 +366,14 @@ func openFile(filePath string) (string, error) {
 	return list, nil
 }
 
-func openApp(appName string) (string, error) {
-	cmd := exec.Command("open", "-a", appName)
+func openApp(appName string, inBackground bool) (string, error) {
+	var cmd *exec.Cmd
+	if inBackground {
+		cmd = exec.Command("open", "-a", appName, "-g")
+	} else {
+		cmd = exec.Command("open", "-a", appName)
+	}
+
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Run()
@@ -214,6 +401,43 @@ func quickLook(imgPath string) (string, error) {
 func changeWallpaper(imgPath string) {
 	cmd := fmt.Sprintf("tell application \"Finder\" to set desktop picture to POSIX file \"%s\"", imgPath)
 	actionScript(cmd)
+}
+
+func closeApp(appName string) {
+	actionScript(fmt.Sprintf("quit app \"%s\"", appName))
+}
+
+func moveFile(sourcePath string, destPath string) error {
+	return os.Rename(sourcePath, destPath)
+}
+
+func storedActionScript(scriptName string, params ...string) (string, error) {
+	var data []byte
+	var err error
+
+	// Pull from asset store
+	if data, err = Asset("scripts/" + scriptName); err != nil {
+		return "", err
+	}
+
+	if err = ioutil.WriteFile("/tmp/"+scriptName, []byte(data), 0644); err != nil {
+		return "", err
+	}
+
+	if err = os.Chmod("/tmp/"+scriptName, 0777); err != nil {
+		return "", err
+	}
+
+	cmd := exec.Command("/tmp/"+scriptName, params...)
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err = cmd.Run()
+	if err != nil {
+		return "", err
+	}
+
+	list := out.String()
+	return list, nil
 }
 
 func actionScript(command string) (string, error) {
