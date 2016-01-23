@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5A699D31C535B9400C3E158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D21C535B9400C3E158 /* AppDelegate.swift */; };
+		F5A699D51C535B9400C3E158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D41C535B9400C3E158 /* ViewController.swift */; };
+		F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A699D61C535B9400C3E158 /* Assets.xcassets */; };
+		F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A699D81C535B9400C3E158 /* Main.storyboard */; };
+		F5A699E51C535B9400C3E158 /* ComputerRoommateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699E41C535B9400C3E158 /* ComputerRoommateTests.swift */; };
+		F5A699F01C535B9400C3E158 /* ComputerRoommateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699EF1C535B9400C3E158 /* ComputerRoommateUITests.swift */; };
+		F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */; };
+		F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5A699E11C535B9400C3E158 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5A699C71C535B9400C3E158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5A699CE1C535B9400C3E158;
+			remoteInfo = ComputerRoommate;
+		};
+		F5A699EC1C535B9400C3E158 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5A699C71C535B9400C3E158 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5A699CE1C535B9400C3E158;
+			remoteInfo = ComputerRoommate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerRoommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A699D21C535B9400C3E158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F5A699D41C535B9400C3E158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F5A699D61C535B9400C3E158 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F5A699D91C535B9400C3E158 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F5A699DB1C535B9400C3E158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A699E01C535B9400C3E158 /* ComputerRoommateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerRoommateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A699E41C535B9400C3E158 /* ComputerRoommateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerRoommateTests.swift; sourceTree = "<group>"; };
+		F5A699E61C535B9400C3E158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A699EB1C535B9400C3E158 /* ComputerRoommateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComputerRoommateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5A699EF1C535B9400C3E158 /* ComputerRoommateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerRoommateUITests.swift; sourceTree = "<group>"; };
+		F5A699F11C535B9400C3E158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "roommatePicker-stoner.jpg"; sourceTree = "<group>"; };
+		F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rooommatePicker-neat.jpg"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5A699CC1C535B9400C3E158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A699DD1C535B9400C3E158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A699E81C535B9400C3E158 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5A699C61C535B9400C3E158 = {
+			isa = PBXGroup;
+			children = (
+				F5A699FF1C535FA600C3E158 /* Assets */,
+				F5A699D11C535B9400C3E158 /* ComputerRoommate */,
+				F5A699E31C535B9400C3E158 /* ComputerRoommateTests */,
+				F5A699EE1C535B9400C3E158 /* ComputerRoommateUITests */,
+				F5A699D01C535B9400C3E158 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5A699D01C535B9400C3E158 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */,
+				F5A699E01C535B9400C3E158 /* ComputerRoommateTests.xctest */,
+				F5A699EB1C535B9400C3E158 /* ComputerRoommateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5A699D11C535B9400C3E158 /* ComputerRoommate */ = {
+			isa = PBXGroup;
+			children = (
+				F5A699D21C535B9400C3E158 /* AppDelegate.swift */,
+				F5A699D41C535B9400C3E158 /* ViewController.swift */,
+				F5A699D61C535B9400C3E158 /* Assets.xcassets */,
+				F5A699D81C535B9400C3E158 /* Main.storyboard */,
+				F5A699DB1C535B9400C3E158 /* Info.plist */,
+			);
+			path = ComputerRoommate;
+			sourceTree = "<group>";
+		};
+		F5A699E31C535B9400C3E158 /* ComputerRoommateTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5A699E41C535B9400C3E158 /* ComputerRoommateTests.swift */,
+				F5A699E61C535B9400C3E158 /* Info.plist */,
+			);
+			path = ComputerRoommateTests;
+			sourceTree = "<group>";
+		};
+		F5A699EE1C535B9400C3E158 /* ComputerRoommateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F5A699EF1C535B9400C3E158 /* ComputerRoommateUITests.swift */,
+				F5A699F11C535B9400C3E158 /* Info.plist */,
+			);
+			path = ComputerRoommateUITests;
+			sourceTree = "<group>";
+		};
+		F5A699FF1C535FA600C3E158 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */,
+				F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5A699CE1C535B9400C3E158 /* ComputerRoommate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A699F41C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommate" */;
+			buildPhases = (
+				F5A699CB1C535B9400C3E158 /* Sources */,
+				F5A699CC1C535B9400C3E158 /* Frameworks */,
+				F5A699CD1C535B9400C3E158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ComputerRoommate;
+			productName = ComputerRoommate;
+			productReference = F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F5A699DF1C535B9400C3E158 /* ComputerRoommateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A699F71C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommateTests" */;
+			buildPhases = (
+				F5A699DC1C535B9400C3E158 /* Sources */,
+				F5A699DD1C535B9400C3E158 /* Frameworks */,
+				F5A699DE1C535B9400C3E158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5A699E21C535B9400C3E158 /* PBXTargetDependency */,
+			);
+			name = ComputerRoommateTests;
+			productName = ComputerRoommateTests;
+			productReference = F5A699E01C535B9400C3E158 /* ComputerRoommateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F5A699EA1C535B9400C3E158 /* ComputerRoommateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5A699FA1C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommateUITests" */;
+			buildPhases = (
+				F5A699E71C535B9400C3E158 /* Sources */,
+				F5A699E81C535B9400C3E158 /* Frameworks */,
+				F5A699E91C535B9400C3E158 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5A699ED1C535B9400C3E158 /* PBXTargetDependency */,
+			);
+			name = ComputerRoommateUITests;
+			productName = ComputerRoommateUITests;
+			productReference = F5A699EB1C535B9400C3E158 /* ComputerRoommateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5A699C71C535B9400C3E158 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Dan Kurtz";
+				TargetAttributes = {
+					F5A699CE1C535B9400C3E158 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					F5A699DF1C535B9400C3E158 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = F5A699CE1C535B9400C3E158;
+					};
+					F5A699EA1C535B9400C3E158 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = F5A699CE1C535B9400C3E158;
+					};
+				};
+			};
+			buildConfigurationList = F5A699CA1C535B9400C3E158 /* Build configuration list for PBXProject "ComputerRoommate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F5A699C61C535B9400C3E158;
+			productRefGroup = F5A699D01C535B9400C3E158 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5A699CE1C535B9400C3E158 /* ComputerRoommate */,
+				F5A699DF1C535B9400C3E158 /* ComputerRoommateTests */,
+				F5A699EA1C535B9400C3E158 /* ComputerRoommateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5A699CD1C535B9400C3E158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */,
+				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
+				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,
+				F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A699DE1C535B9400C3E158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A699E91C535B9400C3E158 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5A699CB1C535B9400C3E158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A699D51C535B9400C3E158 /* ViewController.swift in Sources */,
+				F5A699D31C535B9400C3E158 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A699DC1C535B9400C3E158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A699E51C535B9400C3E158 /* ComputerRoommateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5A699E71C535B9400C3E158 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5A699F01C535B9400C3E158 /* ComputerRoommateUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5A699E21C535B9400C3E158 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5A699CE1C535B9400C3E158 /* ComputerRoommate */;
+			targetProxy = F5A699E11C535B9400C3E158 /* PBXContainerItemProxy */;
+		};
+		F5A699ED1C535B9400C3E158 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5A699CE1C535B9400C3E158 /* ComputerRoommate */;
+			targetProxy = F5A699EC1C535B9400C3E158 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F5A699D81C535B9400C3E158 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5A699D91C535B9400C3E158 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5A699F21C535B9400C3E158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F5A699F31C535B9400C3E158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F5A699F51C535B9400C3E158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ComputerRoommate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brickswithoutclay.ComputerRoommate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F5A699F61C535B9400C3E158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ComputerRoommate/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brickswithoutclay.ComputerRoommate;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F5A699F81C535B9400C3E158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ComputerRoommateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brickswithoutclay.ComputerRoommateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComputerRoommate.app/Contents/MacOS/ComputerRoommate";
+			};
+			name = Debug;
+		};
+		F5A699F91C535B9400C3E158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ComputerRoommateTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brickswithoutclay.ComputerRoommateTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComputerRoommate.app/Contents/MacOS/ComputerRoommate";
+			};
+			name = Release;
+		};
+		F5A699FB1C535B9400C3E158 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ComputerRoommateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brickswithoutclay.ComputerRoommateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ComputerRoommate;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F5A699FC1C535B9400C3E158 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ComputerRoommateUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brickswithoutclay.ComputerRoommateUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ComputerRoommate;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5A699CA1C535B9400C3E158 /* Build configuration list for PBXProject "ComputerRoommate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A699F21C535B9400C3E158 /* Debug */,
+				F5A699F31C535B9400C3E158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5A699F41C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A699F51C535B9400C3E158 /* Debug */,
+				F5A699F61C535B9400C3E158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F5A699F71C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A699F81C535B9400C3E158 /* Debug */,
+				F5A699F91C535B9400C3E158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F5A699FA1C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5A699FB1C535B9400C3E158 /* Debug */,
+				F5A699FC1C535B9400C3E158 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5A699C71C535B9400C3E158 /* Project object */;
+}
