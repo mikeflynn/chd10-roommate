@@ -18,9 +18,12 @@ import (
 	"github.com/deckarep/gosx-notifier"
 )
 
+var startRepl *bool
+var startService *bool
+
 func main() {
-	startRepl := flag.Bool("repl", false, "Start an interactive repl for command testing.")
-	startService := flag.Bool("service", false, "Start the app watching and random task service.")
+	startRepl = flag.Bool("repl", false, "Start an interactive repl for command testing.")
+	startService = flag.Bool("service", false, "Start the app watching and random task service.")
 	flag.Parse()
 
 	if *startRepl {
@@ -105,7 +108,21 @@ func parseCommand(args []string) {
 
 		fmt.Println("Quicklook popped.")
 	case args[0] == "startaudio" && len(args) > 1:
-		go startAudio(args[1])
+		if *startRepl {
+			go func() {
+				if out, err := startAudio(args[1]); err != nil {
+					fmt.Println(err.Error())
+				} else {
+					fmt.Println(out)
+				}
+			}()
+		} else {
+			if out, err := startAudio(args[1]); err != nil {
+				fmt.Println(err.Error())
+			} else {
+				fmt.Println(out)
+			}
+		}
 
 		fmt.Println("Audio playing.")
 	case args[0] == "stopaudio":
