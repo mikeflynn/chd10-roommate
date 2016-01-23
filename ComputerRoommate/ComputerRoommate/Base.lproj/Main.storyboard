@@ -661,7 +661,7 @@
                                 <action selector="statusMenuItemSelected:" target="Voe-Tx-rLC" id="8nM-H9-teN"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Call landlord" id="w2Q-Nv-t0x">
+                        <menuItem title="Ask for rent" id="w2Q-Nv-t0x">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="statusMenuItemSelected:" target="Voe-Tx-rLC" id="oAX-aL-4DW"/>
