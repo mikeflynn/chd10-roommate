@@ -16,6 +16,8 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.wantsLayer = true
+        self.view.layer!.backgroundColor = NSColor.whiteColor().CGColor
         // Do any additional setup after loading the view.
     }
 

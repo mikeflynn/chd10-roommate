@@ -15,6 +15,7 @@
 		F5A699F01C535B9400C3E158 /* ComputerRoommateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699EF1C535B9400C3E158 /* ComputerRoommateUITests.swift */; };
 		F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */; };
 		F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */; };
+		F5A69A031C53FD8600C3E158 /* roommatePicker-creepy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5A69A021C53FD8600C3E158 /* roommatePicker-creepy.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F5A699F11C535B9400C3E158 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "roommatePicker-stoner.jpg"; sourceTree = "<group>"; };
 		F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rooommatePicker-neat.jpg"; sourceTree = "<group>"; };
+		F5A69A021C53FD8600C3E158 /* roommatePicker-creepy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "roommatePicker-creepy.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 		F5A699FF1C535FA600C3E158 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F5A69A021C53FD8600C3E158 /* roommatePicker-creepy.jpg */,
 				F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */,
 				F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */,
 			);
@@ -240,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A69A031C53FD8600C3E158 /* roommatePicker-creepy.jpg in Resources */,
 				F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */,
 				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
 				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,

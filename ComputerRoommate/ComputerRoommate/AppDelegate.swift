@@ -20,7 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        NSApplication.sharedApplication().keyWindow?.backgroundColor = NSColor.whiteColor()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -37,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = statusBar.statusItemWithLength(NSVariableStatusItemLength)
         statusItem!.title = "👩"
         statusItem!.menu = self.statusMenu
-        
+        NSApplication.sharedApplication().keyWindow?.backgroundColor = NSColor.whiteColor()
     }
 
 
