@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComputerRoommate/ComputerRoommate/AppDelegate.swift"
+            timestampString = "475276335.316844"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ComputerRoommate.AppDelegate.__deallocating_deinit"
+                  moduleName = "ComputerRoommate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/code/chd10-roommate/ComputerRoommate/ComputerRoommate/AppDelegate.swift"
+                  timestampString = "475276151.544589"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ComputerRoommate.AppDelegate.init (ComputerRoommate.AppDelegate.Type)() -&gt; ComputerRoommate.AppDelegate"
+                  moduleName = "ComputerRoommate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/code/chd10-roommate/ComputerRoommate/ComputerRoommate/AppDelegate.swift"
+                  timestampString = "475276151.545843"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "main"
+                  moduleName = "ComputerRoommate"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/code/chd10-roommate/ComputerRoommate/ComputerRoommate/AppDelegate.swift"
+                  timestampString = "475276151.546004"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

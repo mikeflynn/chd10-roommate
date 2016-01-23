@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		026C52B31C542A64005FDFC7 /* roommate-cli in Resources */ = {isa = PBXBuildFile; fileRef = 026C52B21C542A64005FDFC7 /* roommate-cli */; };
 		F5A699D31C535B9400C3E158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D21C535B9400C3E158 /* AppDelegate.swift */; };
 		F5A699D51C535B9400C3E158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D41C535B9400C3E158 /* ViewController.swift */; };
 		F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A699D61C535B9400C3E158 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		026C52B21C542A64005FDFC7 /* roommate-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "roommate-cli"; sourceTree = "<group>"; };
 		F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerRoommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A699D21C535B9400C3E158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A699D41C535B9400C3E158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		F5A699FF1C535FA600C3E158 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				026C52B21C542A64005FDFC7 /* roommate-cli */,
 				F5A69A021C53FD8600C3E158 /* roommatePicker-creepy.jpg */,
 				F5A69A001C5365CA00C3E158 /* rooommatePicker-neat.jpg */,
 				F5A699FD1C535FA000C3E158 /* roommatePicker-stoner.jpg */,
@@ -248,6 +251,7 @@
 				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
 				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,
 				F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */,
+				026C52B31C542A64005FDFC7 /* roommate-cli in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +499,7 @@
 				F5A699F61C535B9400C3E158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5A699F71C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommateTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +508,7 @@
 				F5A699F91C535B9400C3E158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5A699FA1C535B9400C3E158 /* Build configuration list for PBXNativeTarget "ComputerRoommateUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +517,7 @@
 				F5A699FC1C535B9400C3E158 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

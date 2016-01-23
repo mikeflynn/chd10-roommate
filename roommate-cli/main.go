@@ -154,7 +154,7 @@ func parseCommand(args []string) {
 		} else {
 			fmt.Println(output)
 		}
-	case args[0] == "alert" && len(args) > 4:
+	case args[0] == "alert" && len(args) > 3:
 		if output, err := storedActionScript("alert.applescript", args[1], args[2], asPath(args[3])); err != nil {
 			fmt.Println(err.Error())
 		} else {
