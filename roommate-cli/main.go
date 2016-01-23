@@ -46,7 +46,7 @@ func repl() {
 
 	fmt.Printf("Computer Roommate Terminal\n" +
 		"==========================\n" +
-		"Type \"help\" for a list of commands.\n\n")
+		"Type \"commands\" for a list of commands.\n\n")
 
 	for {
 		fmt.Printf("> ")
@@ -160,7 +160,7 @@ func parseCommand(args []string) {
 		} else {
 			fmt.Println(output)
 		}
-	case args[0] == "help":
+	case args[0] == "commands":
 		fmt.Println("Valid commands:\n" +
 			"notify\n" +
 			"wallpaper <absolute path to image>\n" +
@@ -171,13 +171,15 @@ func parseCommand(args []string) {
 			"makefile <absolute path to new file> <number of chars to fill it with>\n" +
 			"openapp <app name> <background flag>\n" +
 			"closeapp <app name>\n" +
+			"brightness <brightness level 0 - 1; ex: 0.3>\n" +
+			"alert <body> <title> <icon path>\n" +
 			"startaudio <absolute path to audio>\n" +
 			"stopaudio\n")
 	case args[0] == "quit":
 		fmt.Println("Bye!")
 		os.Exit(0)
 	default:
-		fmt.Println("Invalid command. Try help for a command list.")
+		fmt.Println("Invalid command. Try \"commands\" for a command list.")
 	}
 }
 
