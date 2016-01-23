@@ -15,7 +15,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem: NSStatusItem? = nil;
     
     @IBAction func statusMenuItemSelected(sender: AnyObject) {
-    
+        let alert = NSAlert()
+        alert.alertStyle = .InformationalAlertStyle
+        alert.messageText = "yeah i'll totally get that to you soon\n☮️☮️☮️"
+        alert.icon = NSImage(named: "roommatePicker-stoner.jpg")
+        alert.runModal()
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
