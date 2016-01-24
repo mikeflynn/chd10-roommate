@@ -23,23 +23,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        alert.runModal()
 
     @IBAction func statusMenuItemSelected(sender: NSMenuItem) {
+        let clipath = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
+        let icopath = NSBundle.mainBundle().pathForResource("icon", ofType: "icns")
+        
         if sender.title == "Knock on door" {
-            let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
             let task = NSTask()
-            task.launchPath = path
-            task.arguments = ["alert", "Dude...chil.", "Seriously. Chill.", "/Users/mikeflynn/code/chd10-roommate/roommate-cli/img/angry.icns"]
+            task.launchPath = clipath
+            task.arguments = ["volume", "15"]
             task.launch()
         } else if sender.title == "Bang on door" {
-            let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
+            //let movpath = NSBundle.mainBundle().pathForResource("edm", ofType: "mov")
+            //let task = NSTask()
+            //task.launchPath = clipath
+            //task.arguments = ["startaudio", movpath!]
+            //task.launch()
+        } else if sender.title == "Ask for rent" {
             let task = NSTask()
-            task.launchPath = path
-            task.arguments = ["startaudio", "/Users/mikeflynn/Desktop/brad_sucks.mp3"]
-            task.launch()
-        } else if sender.title == "Call landlord" {
-            let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
-            let task = NSTask()
-            task.launchPath = path
-            task.arguments = ["alert", "WTF man?!", "Alright alright...dick.", "/Users/mikeflynn/code/chd10-roommate/roommate-cli/img/angry.icns"]
+            task.launchPath = clipath
+            task.arguments = ["alert", "I need to get that to you later.", "Oh yeah, totally.", icopath!, "Wait", "Wait"]
             task.launch()
         }
     }
