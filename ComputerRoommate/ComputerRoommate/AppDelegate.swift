@@ -18,7 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //    @IBAction func statusMenuItemSelected(sender: AnyObject) {
 //        let alert = NSAlert()
 //        alert.alertStyle = .InformationalAlertStyle
-//        alert.messageText = "yeah i'll totally get that to you soon\n☮️☮️☮️"
+//        alert.messageText = "yeah i'll totally get that to you soon\n✌️✌️✌️"
 //        alert.icon = NSImage(named: "roommatePicker-stoner.jpg")
 //        alert.runModal()
 
@@ -27,20 +27,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let icopath = NSBundle.mainBundle().pathForResource("icon", ofType: "icns")
         
         if sender.title == "Knock on door" {
+            /*
+            let movpath = NSBundle.mainBundle().pathForResource("edm", ofType: "mov")
+            let task = NSTask()
+            task.launchPath = clipath
+            task.arguments = ["startaudio", movpath!]
+            task.launch() 
+            */
+            
+            // Drop audio
+            let task = NSTask()
+            task.launchPath = clipath
+            task.arguments = ["volume", "15"]
+            task.launch()
+        } else if sender.title == "Bang on door" {
             let task = NSTask()
             task.launchPath = clipath
             task.arguments = ["volume", "5"]
             task.launch()
-        } else if sender.title == "Bang on door" {
-            //let movpath = NSBundle.mainBundle().pathForResource("edm", ofType: "mov")
-            //let task = NSTask()
-            //task.launchPath = clipath
-            //task.arguments = ["startaudio", movpath!]
-            //task.launch()
         } else if sender.title == "Ask for rent" {
             let task = NSTask()
             task.launchPath = clipath
-            task.arguments = ["alert", "yeah i'll totally get that to you soon ☮️☮️☮️", "Right, about that...", icopath!, "Wait", "Wait"]
+            task.arguments = ["alert", "yeah i'll totally get that to you soon ✌️✌️✌️", "Right, about that...", icopath!, "Wait", "Wait"]
             task.launch()
         }
     }
@@ -74,7 +82,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem!.menu = self.statusMenu
         NSApplication.sharedApplication().keyWindow?.backgroundColor = NSColor.whiteColor()
     }
-
-
+    
 }
 
