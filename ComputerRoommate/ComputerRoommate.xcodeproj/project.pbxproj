@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		026C52BE1C5454C7005FDFC7 /* edm.mov in Resources */ = {isa = PBXBuildFile; fileRef = 026C52BB1C5454C7005FDFC7 /* edm.mov */; };
-		026C52BF1C5454C7005FDFC7 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 026C52BC1C5454C7005FDFC7 /* icon.icns */; };
-		026C52C01C5454C7005FDFC7 /* icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 026C52BD1C5454C7005FDFC7 /* icon.ico */; };
 		026C52C61C545E30005FDFC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 026C52C51C545E30005FDFC7 /* wallpaper.png */; };
-		026C52C81C545EC2005FDFC7 /* roommate-cli in Resources */ = {isa = PBXBuildFile; fileRef = 026C52C71C545EC2005FDFC7 /* roommate-cli */; };
+		026C52CB1C546556005FDFC7 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 026C52C91C546556005FDFC7 /* icon.icns */; };
+		026C52CC1C546556005FDFC7 /* icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 026C52CA1C546556005FDFC7 /* icon.ico */; };
+		026C52CE1C5465AA005FDFC7 /* roommate-cli in Resources */ = {isa = PBXBuildFile; fileRef = 026C52CD1C5465AA005FDFC7 /* roommate-cli */; };
 		F5A699D31C535B9400C3E158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D21C535B9400C3E158 /* AppDelegate.swift */; };
 		F5A699D51C535B9400C3E158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D41C535B9400C3E158 /* ViewController.swift */; };
 		F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A699D61C535B9400C3E158 /* Assets.xcassets */; };
@@ -42,10 +42,10 @@
 
 /* Begin PBXFileReference section */
 		026C52BB1C5454C7005FDFC7 /* edm.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = edm.mov; sourceTree = "<group>"; };
-		026C52BC1C5454C7005FDFC7 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
-		026C52BD1C5454C7005FDFC7 /* icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon.ico; sourceTree = "<group>"; };
 		026C52C51C545E30005FDFC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
-		026C52C71C545EC2005FDFC7 /* roommate-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "roommate-cli"; sourceTree = "<group>"; };
+		026C52C91C546556005FDFC7 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		026C52CA1C546556005FDFC7 /* icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon.ico; sourceTree = "<group>"; };
+		026C52CD1C5465AA005FDFC7 /* roommate-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "roommate-cli"; sourceTree = "<group>"; };
 		F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerRoommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A699D21C535B9400C3E158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A699D41C535B9400C3E158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +91,9 @@
 		026C52BA1C5453DE005FDFC7 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				026C52C91C546556005FDFC7 /* icon.icns */,
+				026C52CA1C546556005FDFC7 /* icon.ico */,
 				026C52BB1C5454C7005FDFC7 /* edm.mov */,
-				026C52BC1C5454C7005FDFC7 /* icon.icns */,
-				026C52BD1C5454C7005FDFC7 /* icon.ico */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -152,7 +152,7 @@
 		F5A699FF1C535FA600C3E158 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				026C52C71C545EC2005FDFC7 /* roommate-cli */,
+				026C52CD1C5465AA005FDFC7 /* roommate-cli */,
 				026C52C51C545E30005FDFC7 /* wallpaper.png */,
 				026C52BA1C5453DE005FDFC7 /* demo */,
 				F5A69A021C53FD8600C3E158 /* roommatePicker-creepy.jpg */,
@@ -268,14 +268,14 @@
 			files = (
 				F5A69A031C53FD8600C3E158 /* roommatePicker-creepy.jpg in Resources */,
 				F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */,
+				026C52CC1C546556005FDFC7 /* icon.ico in Resources */,
 				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
 				026C52C61C545E30005FDFC7 /* wallpaper.png in Resources */,
 				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,
 				F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */,
-				026C52BF1C5454C7005FDFC7 /* icon.icns in Resources */,
 				026C52BE1C5454C7005FDFC7 /* edm.mov in Resources */,
-				026C52C01C5454C7005FDFC7 /* icon.ico in Resources */,
-				026C52C81C545EC2005FDFC7 /* roommate-cli in Resources */,
+				026C52CB1C546556005FDFC7 /* icon.icns in Resources */,
+				026C52CE1C5465AA005FDFC7 /* roommate-cli in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

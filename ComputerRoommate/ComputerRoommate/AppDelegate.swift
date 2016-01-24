@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if sender.title == "Knock on door" {
             let task = NSTask()
             task.launchPath = clipath
-            task.arguments = ["volume", "15"]
+            task.arguments = ["volume", "5"]
             task.launch()
         } else if sender.title == "Bang on door" {
             //let movpath = NSBundle.mainBundle().pathForResource("edm", ofType: "mov")
@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else if sender.title == "Ask for rent" {
             let task = NSTask()
             task.launchPath = clipath
-            task.arguments = ["alert", "I need to get that to you later.", "Oh yeah, totally.", icopath!, "Wait", "Wait"]
+            task.arguments = ["alert", "yeah i'll totally get that to you soon ☮️☮️☮️", "Right, about that...", icopath!, "Wait", "Wait"]
             task.launch()
         }
     }
