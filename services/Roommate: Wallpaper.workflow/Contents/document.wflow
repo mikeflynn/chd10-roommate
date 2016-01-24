@@ -59,7 +59,8 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>/Applications/ComputerRoommate.app/Contents/Resources/roommate-cli wallpaper /Applications/ComputerRoommate.app/Contents/Resources/wallpaper.png</string>
+					<string>/Applications/ComputerRoommate.app/Contents/Resources/roommate-cli wallpaper /Applications/ComputerRoommate.app/Contents/Resources/wallpaper.png
+/Applications/ComputerRoommate.app/Contents/Resources/roommate-cli makedir ~/Desktop/DAMIENS_STUFF</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
@@ -169,8 +170,6 @@
 						<string>4</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
