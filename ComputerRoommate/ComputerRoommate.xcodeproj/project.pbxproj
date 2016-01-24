@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		026C52BE1C5454C7005FDFC7 /* edm.mov in Resources */ = {isa = PBXBuildFile; fileRef = 026C52BB1C5454C7005FDFC7 /* edm.mov */; };
 		026C52CB1C546556005FDFC7 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 026C52C91C546556005FDFC7 /* icon.icns */; };
 		026C52CC1C546556005FDFC7 /* icon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 026C52CA1C546556005FDFC7 /* icon.ico */; };
 		026C52D01C556424005FDFC7 /* wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 026C52CF1C556424005FDFC7 /* wallpaper.png */; };
 		026C52D21C556498005FDFC7 /* roommate-cli in Resources */ = {isa = PBXBuildFile; fileRef = 026C52D11C556498005FDFC7 /* roommate-cli */; };
+		026C52D41C557C2D005FDFC7 /* edm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 026C52D31C557C2D005FDFC7 /* edm.mp3 */; };
+		026C52D61C557C6F005FDFC7 /* edm.mov in Resources */ = {isa = PBXBuildFile; fileRef = 026C52D51C557C6F005FDFC7 /* edm.mov */; };
 		F5A699D31C535B9400C3E158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D21C535B9400C3E158 /* AppDelegate.swift */; };
 		F5A699D51C535B9400C3E158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D41C535B9400C3E158 /* ViewController.swift */; };
 		F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A699D61C535B9400C3E158 /* Assets.xcassets */; };
@@ -41,11 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		026C52BB1C5454C7005FDFC7 /* edm.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = edm.mov; sourceTree = "<group>"; };
 		026C52C91C546556005FDFC7 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		026C52CA1C546556005FDFC7 /* icon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon.ico; sourceTree = "<group>"; };
 		026C52CF1C556424005FDFC7 /* wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallpaper.png; sourceTree = "<group>"; };
 		026C52D11C556498005FDFC7 /* roommate-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "roommate-cli"; sourceTree = "<group>"; };
+		026C52D31C557C2D005FDFC7 /* edm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = edm.mp3; sourceTree = "<group>"; };
+		026C52D51C557C6F005FDFC7 /* edm.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = edm.mov; sourceTree = "<group>"; };
 		F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerRoommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A699D21C535B9400C3E158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A699D41C535B9400C3E158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,9 +93,10 @@
 		026C52BA1C5453DE005FDFC7 /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				026C52D51C557C6F005FDFC7 /* edm.mov */,
+				026C52D31C557C2D005FDFC7 /* edm.mp3 */,
 				026C52C91C546556005FDFC7 /* icon.icns */,
 				026C52CA1C546556005FDFC7 /* icon.ico */,
-				026C52BB1C5454C7005FDFC7 /* edm.mov */,
 			);
 			name = demo;
 			sourceTree = "<group>";
@@ -269,11 +272,12 @@
 				F5A69A031C53FD8600C3E158 /* roommatePicker-creepy.jpg in Resources */,
 				F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */,
 				026C52CC1C546556005FDFC7 /* icon.ico in Resources */,
+				026C52D41C557C2D005FDFC7 /* edm.mp3 in Resources */,
 				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
 				026C52D01C556424005FDFC7 /* wallpaper.png in Resources */,
 				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,
 				F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */,
-				026C52BE1C5454C7005FDFC7 /* edm.mov in Resources */,
+				026C52D61C557C6F005FDFC7 /* edm.mov in Resources */,
 				026C52CB1C546556005FDFC7 /* icon.icns in Resources */,
 				026C52D21C556498005FDFC7 /* roommate-cli in Resources */,
 			);
