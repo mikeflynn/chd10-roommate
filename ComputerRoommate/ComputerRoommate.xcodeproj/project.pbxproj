@@ -13,6 +13,13 @@
 		026C52D21C556498005FDFC7 /* roommate-cli in Resources */ = {isa = PBXBuildFile; fileRef = 026C52D11C556498005FDFC7 /* roommate-cli */; };
 		026C52D41C557C2D005FDFC7 /* edm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 026C52D31C557C2D005FDFC7 /* edm.mp3 */; };
 		026C52D61C557C6F005FDFC7 /* edm.mov in Resources */ = {isa = PBXBuildFile; fileRef = 026C52D51C557C6F005FDFC7 /* edm.mov */; };
+		8249BBEA1C556EFD0013EC49 /* college-student-studying-scaled.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBE91C556EFD0013EC49 /* college-student-studying-scaled.png */; };
+		8249BBEE1C556F250013EC49 /* roommatePicker-creepy-sized.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBEC1C556F250013EC49 /* roommatePicker-creepy-sized.png */; };
+		8249BBEF1C556F250013EC49 /* roommatePicker-stoner-size.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBED1C556F250013EC49 /* roommatePicker-stoner-size.png */; };
+		8249BBF11C557AF40013EC49 /* cell-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBF01C557AF40013EC49 /* cell-background.png */; };
+		8249BBF31C557CCC0013EC49 /* cutoff-cell.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBF21C557CCC0013EC49 /* cutoff-cell.png */; };
+		8249BBF51C557FBC0013EC49 /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBF41C557FBC0013EC49 /* title.png */; };
+		8249BBF71C5580C00013EC49 /* title-no-border.png in Resources */ = {isa = PBXBuildFile; fileRef = 8249BBF61C5580C00013EC49 /* title-no-border.png */; };
 		F5A699D31C535B9400C3E158 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D21C535B9400C3E158 /* AppDelegate.swift */; };
 		F5A699D51C535B9400C3E158 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A699D41C535B9400C3E158 /* ViewController.swift */; };
 		F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A699D61C535B9400C3E158 /* Assets.xcassets */; };
@@ -48,6 +55,13 @@
 		026C52D11C556498005FDFC7 /* roommate-cli */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "roommate-cli"; sourceTree = "<group>"; };
 		026C52D31C557C2D005FDFC7 /* edm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = edm.mp3; sourceTree = "<group>"; };
 		026C52D51C557C6F005FDFC7 /* edm.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = edm.mov; sourceTree = "<group>"; };
+		8249BBE91C556EFD0013EC49 /* college-student-studying-scaled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "college-student-studying-scaled.png"; sourceTree = "<group>"; };
+		8249BBEC1C556F250013EC49 /* roommatePicker-creepy-sized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roommatePicker-creepy-sized.png"; sourceTree = "<group>"; };
+		8249BBED1C556F250013EC49 /* roommatePicker-stoner-size.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "roommatePicker-stoner-size.png"; sourceTree = "<group>"; };
+		8249BBF01C557AF40013EC49 /* cell-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-background.png"; sourceTree = "<group>"; };
+		8249BBF21C557CCC0013EC49 /* cutoff-cell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutoff-cell.png"; sourceTree = "<group>"; };
+		8249BBF41C557FBC0013EC49 /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		8249BBF61C5580C00013EC49 /* title-no-border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title-no-border.png"; sourceTree = "<group>"; };
 		F5A699CF1C535B9400C3E158 /* ComputerRoommate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComputerRoommate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A699D21C535B9400C3E158 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5A699D41C535B9400C3E158 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +113,16 @@
 				026C52CA1C546556005FDFC7 /* icon.ico */,
 			);
 			name = demo;
+			sourceTree = "<group>";
+		};
+		8249BBEB1C556F150013EC49 /* Scaled */ = {
+			isa = PBXGroup;
+			children = (
+				8249BBEC1C556F250013EC49 /* roommatePicker-creepy-sized.png */,
+				8249BBED1C556F250013EC49 /* roommatePicker-stoner-size.png */,
+				8249BBE91C556EFD0013EC49 /* college-student-studying-scaled.png */,
+			);
+			name = Scaled;
 			sourceTree = "<group>";
 		};
 		F5A699C61C535B9400C3E158 = {
@@ -155,6 +179,11 @@
 		F5A699FF1C535FA600C3E158 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				8249BBF61C5580C00013EC49 /* title-no-border.png */,
+				8249BBF41C557FBC0013EC49 /* title.png */,
+				8249BBF21C557CCC0013EC49 /* cutoff-cell.png */,
+				8249BBF01C557AF40013EC49 /* cell-background.png */,
+				8249BBEB1C556F150013EC49 /* Scaled */,
 				026C52D11C556498005FDFC7 /* roommate-cli */,
 				026C52CF1C556424005FDFC7 /* wallpaper.png */,
 				026C52BA1C5453DE005FDFC7 /* demo */,
@@ -271,15 +300,23 @@
 			files = (
 				F5A69A031C53FD8600C3E158 /* roommatePicker-creepy.jpg in Resources */,
 				F5A699FE1C535FA000C3E158 /* roommatePicker-stoner.jpg in Resources */,
+				8249BBEF1C556F250013EC49 /* roommatePicker-stoner-size.png in Resources */,
 				026C52CC1C546556005FDFC7 /* icon.ico in Resources */,
 				026C52D41C557C2D005FDFC7 /* edm.mp3 in Resources */,
 				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
 				026C52D01C556424005FDFC7 /* wallpaper.png in Resources */,
+				8249BBF71C5580C00013EC49 /* title-no-border.png in Resources */,
 				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,
 				F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */,
 				026C52D61C557C6F005FDFC7 /* edm.mov in Resources */,
+				8249BBEA1C556EFD0013EC49 /* college-student-studying-scaled.png in Resources */,
+				026C52BE1C5454C7005FDFC7 /* edm.mov in Resources */,
+				8249BBEE1C556F250013EC49 /* roommatePicker-creepy-sized.png in Resources */,
+				8249BBF11C557AF40013EC49 /* cell-background.png in Resources */,
 				026C52CB1C546556005FDFC7 /* icon.icns in Resources */,
 				026C52D21C556498005FDFC7 /* roommate-cli in Resources */,
+				8249BBF51C557FBC0013EC49 /* title.png in Resources */,
+				8249BBF31C557CCC0013EC49 /* cutoff-cell.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
