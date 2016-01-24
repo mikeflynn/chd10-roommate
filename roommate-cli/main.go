@@ -71,9 +71,9 @@ func parseCommand(args []string) {
 	case args[0] == "notify":
 		n := &Notification{
 			Body:     "Can you pick some up?",
-			Title:    "Hey buddy!",
+			Title:    "Hey...",
 			Subtitle: "We're out of your milk.",
-			Image:    "./img/angry.ico",
+			Image:    "/Users/mikeflynn/Desktop/chd10-demo/icon.ico",
 		}
 
 		err := n.notify()
@@ -171,11 +171,17 @@ func parseCommand(args []string) {
 		} else {
 			fmt.Println(output)
 		}
-	case args[0] == "alert" && len(args) > 3:
-		if output, err := storedActionScript("alert.applescript", args[1], args[2], asPath(args[3])); err != nil {
+	case args[0] == "alert" && len(args) > 5:
+		if output, err := storedActionScript("alert.applescript", args[1], args[2], asPath(args[3]), args[4], args[5]); err != nil {
 			fmt.Println(err.Error())
 		} else {
 			fmt.Println(output)
+		}
+	case args[0] == "volume" && len(args) > 1:
+		if _, err := actionScript(fmt.Sprintf("set volume output volume %s --100%", args[1])); err != nil {
+			fmt.Println(err.Error())
+		} else {
+			fmt.Println("Volume set to " + args[1])
 		}
 	case args[0] == "commands":
 		fmt.Println("Valid commands:\n" +
@@ -189,7 +195,8 @@ func parseCommand(args []string) {
 			"openapp <app name> <background flag>\n" +
 			"closeapp <app name>\n" +
 			"brightness <brightness level 0 - 1; ex: 0.3>\n" +
-			"alert <body> <title> <icon path>\n" +
+			"alert <body> <title> <icon path> <button_1_text> <button_2_text>\n" +
+			"volume <volume % 0 - 100>\n" +
 			"startaudio <absolute path to audio>\n" +
 			"stopaudio\n")
 	case args[0] == "quit":
@@ -226,19 +233,17 @@ func watchPs() {
 			if _, ok := found[name]; !ok {
 				found[name] = true
 				go func() {
-					time.Sleep(1000 * time.Millisecond * 3)
+					time.Sleep(1000 * time.Millisecond * 1)
 
-					// Notify.
-					n := &Notification{
-						Body:     "Sorry, bro",
-						Title:    "I'm using " + name + "!",
-						Subtitle: "Give me a second.",
-						Image:    "./img/angry.ico",
+					closeApp("iTunes")
+
+					if output, err := storedActionScript("alert.applescript", "I'm in here!", "Ugggghhh!", asPath("/Users/mikeflynn/Desktop/chd10-demo/icon.ico"), "Ok", "Hurry up!"); err != nil {
+						fmt.Println(err.Error())
+					} else {
+						fmt.Println(output)
 					}
-					n.notify()
 
 					// Close it.
-					closeApp("iTunes")
 					delete(found, name)
 				}()
 			}
@@ -249,19 +254,17 @@ func watchPs() {
 			if _, ok := found[name]; !ok {
 				found[name] = true
 				go func() {
-					time.Sleep(1000 * time.Millisecond * 3)
+					time.Sleep(1000 * time.Millisecond * 1)
 
-					// Notify.
-					n := &Notification{
-						Body:     "Sorry, bro",
-						Title:    "I'm using " + name + "!",
-						Subtitle: "Give me a second.",
-						Image:    "./img/angry.ico",
+					closeApp("Safari")
+
+					if output, err := storedActionScript("alert.applescript", "OMG! Knock!", "Ugggghhh!", asPath("/Users/mikeflynn/Desktop/chd10-demo/icon.ico"), "Ok", "Hurry up!"); err != nil {
+						fmt.Println(err.Error())
+					} else {
+						fmt.Println(output)
 					}
-					n.notify()
 
 					// Close it.
-					closeApp("Safari")
 					delete(found, name)
 				}()
 			}
@@ -272,19 +275,17 @@ func watchPs() {
 			if _, ok := found[name]; !ok {
 				found[name] = true
 				go func() {
-					time.Sleep(1000 * time.Millisecond * 3)
+					time.Sleep(1000 * time.Millisecond * 1)
 
-					// Notify.
-					n := &Notification{
-						Body:     "Sorry, bro",
-						Title:    "I'm using " + name + "!",
-						Subtitle: "Give me a second.",
-						Image:    "./img/angry.ico",
+					closeApp("Keynote")
+
+					if output, err := storedActionScript("alert.applescript", "Give me a second!", "Ugggghhh!", asPath("/Users/mikeflynn/Desktop/chd10-demo/icon.ico"), "Ok", "Hurry up!"); err != nil {
+						fmt.Println(err.Error())
+					} else {
+						fmt.Println(output)
 					}
-					n.notify()
 
 					// Close it.
-					closeApp("Keynote")
 					delete(found, name)
 				}()
 			}

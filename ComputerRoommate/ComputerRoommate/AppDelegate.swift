@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
             let task = NSTask()
             task.launchPath = path
-            task.arguments = ["alert", "WTF man?!", "Alright alright...dick.", "/Users/mikeflynn/code/chd10-roommate/roommate-cli/img/angry.icns"]
+            task.arguments = ["startaudio", "/Users/mikeflynn/Desktop/brad_sucks.mp3"]
             task.launch()
         } else if sender.title == "Call landlord" {
             let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
