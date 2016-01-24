@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math"
 	"math/rand"
 	"os"
 	"os/exec"
@@ -73,7 +74,7 @@ func parseCommand(args []string) {
 			Body:     "Can you pick some up?",
 			Title:    "Hey...",
 			Subtitle: "We're out of your milk.",
-			Image:    "/Users/mikeflynn/Desktop/chd10-demo/icon.ico",
+			Image:    "/Applications/ComputerRoommate.app/Contents/Resources/icon.ico",
 		}
 
 		err := n.notify()
@@ -218,6 +219,24 @@ func asPath(path string) string {
 func watchPs() {
 	found := map[string]bool{}
 
+	go func() {
+		for {
+			ts := time.Now().UnixNano()
+			if math.Mod(float64(ts), 5) == 0.0 {
+				changeWallpaper("/Applications/ComputerRoommate.app/Contents/Resources/wallpaper.png")
+			} else if math.Mod(float64(ts), 9) == 0.0 {
+				fmt.Println("Making files...")
+				//createFile("DO NOT TOUCH MY STUFF"+strconv.FormatInt(ts, 10)+".txt", 1000)
+			} else if math.Mod(float64(ts), 3) == 0.0 {
+				openApp("Messages", true)
+				time.Sleep(2000 * time.Millisecond)
+				closeApp("Messages")
+			}
+
+			time.Sleep(1000 * time.Millisecond)
+		}
+	}()
+
 	for {
 		cmd := exec.Command("ps", "-ax")
 		var out bytes.Buffer
@@ -237,7 +256,7 @@ func watchPs() {
 
 					closeApp("iTunes")
 
-					if output, err := storedActionScript("alert.applescript", "I'm in here!", "Ugggghhh!", asPath("/Users/mikeflynn/Desktop/chd10-demo/icon.ico"), "Ok", "Hurry up!"); err != nil {
+					if output, err := storedActionScript("alert.applescript", "I'm in here!", "Ugggghhh!", asPath("/Applications/ComputerRoommate.app/Contents/Resources/icon.ico"), "Ok", "Hurry up!"); err != nil {
 						fmt.Println(err.Error())
 					} else {
 						fmt.Println(output)
@@ -258,7 +277,7 @@ func watchPs() {
 
 					closeApp("Safari")
 
-					if output, err := storedActionScript("alert.applescript", "OMG! Knock!", "Ugggghhh!", asPath("/Users/mikeflynn/Desktop/chd10-demo/icon.ico"), "Ok", "Hurry up!"); err != nil {
+					if output, err := storedActionScript("alert.applescript", "I'll be out in a minute!", "Please Knock!", asPath("/Applications/ComputerRoommate.app/Contents/Resources/icon.ico"), "Ok", "Hurry up!"); err != nil {
 						fmt.Println(err.Error())
 					} else {
 						fmt.Println(output)
@@ -279,7 +298,7 @@ func watchPs() {
 
 					closeApp("Keynote")
 
-					if output, err := storedActionScript("alert.applescript", "Give me a second!", "Ugggghhh!", asPath("/Users/mikeflynn/Desktop/chd10-demo/icon.ico"), "Ok", "Hurry up!"); err != nil {
+					if output, err := storedActionScript("alert.applescript", "Give me a second!", "Ugggghhh!", asPath("/Applications/ComputerRoommate.app/Contents/Resources/icon.ico"), "Ok", "Hurry up!"); err != nil {
 						fmt.Println(err.Error())
 					} else {
 						fmt.Println(output)
