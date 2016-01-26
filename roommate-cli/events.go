@@ -151,3 +151,16 @@ func actionScript(command string) (string, error) {
 	list := out.String()
 	return list, nil
 }
+
+func termCommand(args ...string) (string, error) {
+	cmd := exec.Command(args...)
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		return "", err
+	}
+
+	list := out.String()
+	return list, nil
+}
