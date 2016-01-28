@@ -1,6 +1,6 @@
 all: deps format data
 		@echo "--> Building"
-		@go build
+		@go build -o ../ComputerRoommate/roommate-cli
 
 deps:
 		@echo "--> Installing build dependencies"
