@@ -9,12 +9,15 @@ import (
 	"os/exec"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/deckarep/gosx-notifier"
 )
 
+var WatchList map[string]*WatchApp = make(map[string]*WatchApp)
+
 var EventList map[string]*Event = map[string]*Event{
-	"wallpaper": &Event{
+	"wallpaper": {
 		Description:    "Changes the wallpaper on the desktop.",
 		ArgDescription: "<absolute path to image>",
 		Fn: func(args ...string) string {
@@ -27,7 +30,7 @@ var EventList map[string]*Event = map[string]*Event{
 			return "Wallpaper set."
 		},
 	},
-	"notify": &Event{
+	"notify": {
 		Description:    "Fires a notification to the screen.",
 		ArgDescription: "<title> <body> <image>",
 		Fn: func(args ...string) string {
@@ -49,7 +52,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"quicklook": &Event{
+	"quicklook": {
 		Description:    "Opens quicklook with a file.",
 		ArgDescription: "<absolute path to image>",
 		Fn: func(args ...string) string {
@@ -73,7 +76,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"movefile": &Event{
+	"movefile": {
 		Description:    "Moves the specified file to the specified place.",
 		ArgDescription: "<absolute path to source> <absolute path to desitination>",
 		Fn: func(args ...string) string {
@@ -88,7 +91,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"openfile": &Event{
+	"openfile": {
 		Description:    "Opens the specified file.",
 		ArgDescription: "<absolute path to file>",
 		Fn: func(args ...string) string {
@@ -111,7 +114,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"makedir": &Event{
+	"makedir": {
 		Description:    "Creates a directory.",
 		ArgDescription: "<absolute path to new directory>",
 		Fn: func(args ...string) string {
@@ -126,7 +129,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"makefile": &Event{
+	"makefile": {
 		Description:    "Generates a file with the required number of characters.",
 		ArgDescription: "<absolute path to new file> <number of chars to fill it with>",
 		Fn: func(args ...string) string {
@@ -165,7 +168,7 @@ var EventList map[string]*Event = map[string]*Event{
 			return "Directory created."
 		},
 	},
-	"openapp": &Event{
+	"openapp": {
 		Description:    "Opens an app, could be in the background.",
 		ArgDescription: "<app name> <background flag>",
 		Fn: func(args ...string) string {
@@ -200,7 +203,7 @@ var EventList map[string]*Event = map[string]*Event{
 			return "App opened."
 		},
 	},
-	"closeapp": &Event{
+	"closeapp": {
 		Description:    "Closes an app.",
 		ArgDescription: "<app name>",
 		Fn: func(args ...string) string {
@@ -213,7 +216,7 @@ var EventList map[string]*Event = map[string]*Event{
 			return "App closed."
 		},
 	},
-	"brightness": &Event{
+	"brightness": {
 		Description:    "Adjusts brightness level.",
 		ArgDescription: "<brightness level 0 - 1; ex: 0.3>",
 		Fn: func(args ...string) string {
@@ -228,7 +231,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"alert": &Event{
+	"alert": {
 		Description:    "Generates OS X alert box.",
 		ArgDescription: "<body> <title> <icon path> <button_1_text> <button_2_text>",
 		Fn: func(args ...string) string {
@@ -243,7 +246,7 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"volume": &Event{
+	"volume": {
 		Description:    "Adjusts volume without UI",
 		ArgDescription: "<volume % 0 - 100>",
 		Fn: func(args ...string) string {
@@ -258,7 +261,35 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 		},
 	},
-	"startaudio": &Event{
+	"watch": {
+		Description:    "Watches an app for the specified time and closes it.",
+		ArgDescription: "<app name> <seconds to watch>",
+		Fn: func(args ...string) string {
+			if len(args) == 0 {
+				return "Not enough arguments."
+			}
+
+			appName := args[0]
+			timeout := int64(60 * 5) // 5 mins default
+			var err error
+
+			if len(args) > 1 {
+				if timeout, err = strconv.ParseInt(args[1], 10, 64); err != nil {
+					return err.Error()
+				}
+			}
+
+			wa := &WatchApp{
+				Name:    appName,
+				Timeout: time.Now().Unix() + timeout,
+				Payload: args[2:],
+			}
+			wa.Start()
+
+			return "Watching " + args[0]
+		},
+	},
+	"startaudio": {
 		Description:    "Starts playing audio file.",
 		ArgDescription: "<absolute path to audio>",
 		Fn: func(args ...string) string {
@@ -279,7 +310,7 @@ var EventList map[string]*Event = map[string]*Event{
 			return "Audio started"
 		},
 	},
-	"stopaudio": &Event{
+	"stopaudio": {
 		Description:    "Stops audio.",
 		ArgDescription: "",
 		Fn: func(args ...string) string {
@@ -316,6 +347,16 @@ type Event struct {
 
 func (this *Event) Run(args ...string) {
 	fmt.Println(this.Fn(args...))
+}
+
+type WatchApp struct {
+	Name    string
+	Timeout int64
+	Payload []string
+}
+
+func (this *WatchApp) Start() {
+	WatchList[this.Name] = this
 }
 
 // Utility Functions

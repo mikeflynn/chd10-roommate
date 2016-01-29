@@ -6,8 +6,12 @@ import (
 	"fmt"
 	"log"
 	//"math"
+	"bytes"
 	"os"
+	"os/exec"
+	"regexp"
 	"strings"
+	"time"
 )
 
 var StartRepl *bool
@@ -19,6 +23,7 @@ func main() {
 	flag.Parse()
 
 	if *StartRepl {
+		go watchPs()
 		repl()
 	} else if *StartService {
 		service()
@@ -32,6 +37,16 @@ func main() {
 
 func service() {
 	fmt.Println("Starting super annoying service in the background.")
+
+	// Random Event Loop
+	go func() {
+		for {
+			//ts := time.Now().UnixNano()
+
+			time.Sleep(1000 * time.Millisecond)
+		}
+	}()
+
 	watchPs()
 }
 
@@ -52,117 +67,63 @@ func repl() {
 		}
 
 		args := strings.Split(strings.TrimSpace(line), " ")
-		parseCommand(args)
+		if !parseCommand(args) {
+			fmt.Println("Invalid command. Try \"commands\" for a command list.")
+		}
 	}
 }
 
-func parseCommand(args []string) {
+func parseCommand(args []string) bool {
 	if args[0] == "commands" {
 		fmt.Println(ShowCommands())
-	} else if args[0] == "quit" {
+	} else if args[0] == "quit" || args[0] == "exit" {
 		os.Exit(0)
 	} else if event, ok := EventList[args[0]]; ok {
 		event.Run(args[1:]...)
 	} else {
-		fmt.Println("Invalid command. Try \"commands\" for a command list.")
+		return false
 	}
+
+	return true
 }
 
 func watchPs() {
-	//found := map[string]bool{}
+	found := map[string]bool{}
 
-	/*
-		go func() {
-			for {
-				ts := time.Now().UnixNano()
-				if math.Mod(float64(ts), 15) == 0.0 {
-					changeWallpaper("/Applications/ComputerRoommate.app/Contents/Resources/wallpaper.png")
-				} else if math.Mod(float64(ts), 9) == 0.0 {
-					fmt.Println("Making files...")
-					//createFile("DO NOT TOUCH MY STUFF"+strconv.FormatInt(ts, 10)+".txt", 1000)
-				} else if math.Mod(float64(ts), 3) == 0.0 {
-					//openApp("Messages", true)
-					//time.Sleep(2000 * time.Millisecond)
-					//closeApp("Messages")
-				}
+	for {
+		cmd := exec.Command("ps", "-x")
+		var out bytes.Buffer
+		cmd.Stdout = &out
+		err := cmd.Run()
+		if err != nil {
+			log.Fatal(err)
+		}
 
-				time.Sleep(1000 * time.Millisecond)
-			}
-		}()
-	*/
-	/*
-		for {
-			cmd := exec.Command("ps", "-ax")
-			var out bytes.Buffer
-			cmd.Stdout = &out
-			err := cmd.Run()
-			if err != nil {
-				log.Fatal(err)
+		list := out.String()
+
+		for _, app := range WatchList {
+			if app.Timeout < time.Now().Unix() {
+				delete(found, app.Name)
+				continue
 			}
 
-			list := out.String()
-			if matched, err := regexp.MatchString("MacOS/iTunes\\b", list); err == nil && matched {
-				name := "iTunes"
-				if _, ok := found[name]; !ok {
-					found[name] = true
+			if matched, err := regexp.MatchString("MacOS/"+app.Name+"\\b", list); err == nil && matched {
+				if _, ok := found[app.Name]; !ok {
+					found[app.Name] = true
 					go func() {
 						time.Sleep(1000 * time.Millisecond * 1)
 
-						closeApp("iTunes")
+						closeApp(app.Name)
 
-						if output, err := storedActionScript("alert.applescript", "I'm in here!", "Ugggghhh!", asPath("/Applications/ComputerRoommate.app/Contents/Resources/icon.ico"), "Ok", "Hurry up!"); err != nil {
-							fmt.Println(err.Error())
-						} else {
-							fmt.Println(output)
+						// Payload
+						if len(app.Payload) > 0 {
+							parseCommand(app.Payload)
 						}
 
-						// Close it.
-						delete(found, name)
-					}()
-				}
-			}
-
-			if matched, err := regexp.MatchString("MacOS/Safari\\b", list); err == nil && matched {
-				name := "Safari"
-				if _, ok := found[name]; !ok {
-					found[name] = true
-					go func() {
-						time.Sleep(1000 * time.Millisecond * 1)
-
-						closeApp("Safari")
-
-						if output, err := storedActionScript("alert.applescript", "I'll be out in a minute!", "Please Knock!", asPath("/Applications/ComputerRoommate.app/Contents/Resources/icon.ico"), "Ok", "Hurry up!"); err != nil {
-							fmt.Println(err.Error())
-						} else {
-							fmt.Println(output)
-						}
-
-						// Close it.
-						delete(found, name)
-					}()
-				}
-			}
-
-			if matched, err := regexp.MatchString("MacOS/Keynote\\b", list); err == nil && matched {
-				name := "Keynote"
-				if _, ok := found[name]; !ok {
-					found[name] = true
-					go func() {
-						time.Sleep(1000 * time.Millisecond * 1)
-
-						closeApp("Keynote")
-
-						if output, err := storedActionScript("alert.applescript", "Give me a second!", "Ugggghhh!", asPath("/Applications/ComputerRoommate.app/Contents/Resources/icon.ico"), "Ok", "Hurry up!"); err != nil {
-							fmt.Println(err.Error())
-						} else {
-							fmt.Println(output)
-						}
-
-						// Close it.
-						delete(found, name)
+						delete(found, app.Name)
 					}()
 				}
 			}
 		}
-	*/
+	}
 }
