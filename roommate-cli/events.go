@@ -325,6 +325,16 @@ var EventList map[string]*Event = map[string]*Event{
 	},
 }
 
+func RandomEvent() (string, *Event) {
+	keys := make([]string, 0, len(EventList))
+	for k := range EventList {
+		keys = append(keys, k)
+	}
+
+	rk := rand.Intn(len(keys) - 1)
+	return keys[rk], EventList[keys[rk]]
+}
+
 func ShowCommands() string {
 	var output string
 	for cmd, info := range EventList {
