@@ -1,0 +1,28 @@
+{
+  "name": "autumn",
+  "description": "A pothead who is a DJ when she can be but just lazy usually.",
+  "options": {
+    "icon": "autumn.icns"
+  },
+  "events": {
+    "wallpaper": [
+      "autumn.wallpaper.png"
+    ],
+    "notify": [
+      "Hey man "
+    ],
+    "quicklook": [],
+    "movefile": [],
+    "openfile": [],
+    "makedir": [],
+    "makefile": [],
+    "openapp": [],
+    "closeapp": [],
+    "brightness": [],
+    "alert": [],
+    "volume": [],
+    "watch": [],
+    "startaudio": [],
+    "stopaudio": []
+  }
+}

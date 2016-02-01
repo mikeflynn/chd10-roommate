@@ -3,8 +3,10 @@ package main
 import (
 	"bufio"
 	"bytes"
+	"encoding/json"
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"os"
@@ -21,37 +23,39 @@ var ResourceLocation *string
 
 func main() {
 	StartRepl = flag.Bool("repl", false, "Start an interactive repl for command testing.")
-	ListProfiles = flag.Bool("list-profiles", false, "Lists all roommate profiles.")
-	StartService = flag.String("service", "", "Start the service with the given profile name.")
+	StartService = flag.String("service", "", "Start the service with the given profile JSON config file.")
 	ResourceLocation = flag.String("resources", "/Applications/ComputerRoommate/Contents/Resources/", "The location of the resource files.")
 	flag.Parse()
 
 	if *StartRepl {
 		go watchPs()
 		repl()
-	} else if *ListProfiles {
-		profiles := make([]string, len(ProfileList))
-		for k, v := range ProfileList {
-			profiles = append(profiles, k+" -- "+v.Description)
-		}
-		fmt.Println("Roommate Profiles:" + strings.Join(profiles, "\n"))
-		os.Exit(0)
 	} else if *StartService != "" {
-		profiles := make(map[string]bool, len(ProfileList))
-		for k, _ := range ProfileList {
-			profiles[k] = true
-		}
+		var conf []byte
+		var err error
 
-		if _, ok := profiles[*StartService]; !ok {
-			fmt.Println("Invalid profile selected. Try -list-profiles")
+		if _, err = os.Stat(*StartService); os.IsNotExist(err) {
+			fmt.Println("Service profile configuration file not found.")
 			os.Exit(1)
 		}
 
+		if conf, err = ioutil.ReadFile(*StartService); err != nil {
+			fmt.Println("Service profile configuration file unreadable.")
+			os.Exit(1)
+		}
+
+		var profile *Profile = &Profile{}
+		if err := json.Unmarshal(conf, &profile); err != nil {
+			fmt.Println("Unable to parse service config file.")
+			os.Exit(1)
+		}
+
+		fmt.Println("Starting Computer Roommate service as " + profile.Name)
+
 		go watchPs()
-		service(ProfileList[*StartService], 6) // Hard coded to fire once a minute.
+		service(profile, 6) // Hard coded to fire once a minute.
 	} else if len(os.Args) > 1 {
-		args := os.Args[1:]
-		parseCommand(args)
+		parseCommand(strings.Join(os.Args[1:], " "))
 		os.Exit(0)
 	} else {
 		fmt.Println("You didn't tell me to do anything. Try -help\n")
@@ -89,14 +93,19 @@ func repl() {
 			log.Fatal(err)
 		}
 
-		args := strings.Split(strings.TrimSpace(line), " ")
-		if !parseCommand(args) {
+		if !parseCommand(line) {
 			fmt.Println("Invalid command. Try \"commands\" for a command list.")
 		}
 	}
 }
 
-func parseCommand(args []string) bool {
+func parseCommand(command string) bool {
+	r := regexp.MustCompile("'.+'|\".+\"|\\S+")
+	args := r.FindAllString(command, -1)
+	for k, v := range args {
+		args[k] = strings.Replace(v, "\"", "", -1)
+	}
+
 	if args[0] == "commands" {
 		fmt.Println(ShowCommands())
 	} else if args[0] == "quit" || args[0] == "exit" {

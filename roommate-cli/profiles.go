@@ -6,29 +6,14 @@ import (
 	"strings"
 )
 
-var ProfileList map[string]*Profile = map[string]*Profile{
-	"autumn": {
-		Description: "A stoner.",
-		Options: map[string]string{
-			"icon": "...",
-			"name": "Autumn",
-		},
-		EventData: map[string][]string{
-			"wallpaper": []string{
-				"...img 1",
-				"...img 2",
-			},
-		},
-	},
-}
-
 type Profile struct {
-	Description string
-	Options     map[string]string
-	EventData   map[string][]string
+	Name        string              `json:"name"`
+	Description string              `json:"description"`
+	Options     map[string]string   `json:"options"`
+	EventData   map[string][]string `json:"events"`
 }
 
-func (this *Profile) GetRandCmd() []string {
+func (this *Profile) GetRandCmd() string {
 	keys := make([]string, 0, len(this.EventData))
 	for k := range this.EventData {
 		keys = append(keys, k)
@@ -38,22 +23,20 @@ func (this *Profile) GetRandCmd() []string {
 	return this.GetCmd(keys[rk])
 }
 
-func (this *Profile) GetCmd(event string) []string {
-	command := []string{event}
+func (this *Profile) GetCmd(event string) string {
+	var command string
 
 	// Get a random command call
 	if val, ok := this.EventData[event]; ok {
-		command = append(command, strings.Split(strings.TrimSpace(val[rand.Intn(len(val)-1)]), " ")...)
+		command = event + " " + strings.TrimSpace(val[rand.Intn(len(val)-1)])
 	} else {
-		return []string{}
+		return ""
 	}
 
 	// Scan it for variables
-	for idx, part := range command {
-		for search, replace := range this.Options {
-			re := regexp.MustCompile("\\[" + search + "\\]")
-			command[idx] = re.ReplaceAllString(part, replace)
-		}
+	for search, replace := range this.Options {
+		re := regexp.MustCompile("\\[" + search + "\\]")
+		command = re.ReplaceAllString(command, replace)
 	}
 
 	// Return it

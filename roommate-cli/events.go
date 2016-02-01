@@ -34,7 +34,7 @@ var EventList map[string]*Event = map[string]*Event{
 		Description:    "Fires a notification to the screen.",
 		ArgDescription: "<title> <body> <image>",
 		Fn: func(args ...string) string {
-			if len(args) < 4 {
+			if len(args) < 3 {
 				return "Not enough arguments."
 			} else {
 				n := &Notification{
@@ -282,7 +282,7 @@ var EventList map[string]*Event = map[string]*Event{
 			wa := &WatchApp{
 				Name:    appName,
 				Timeout: time.Now().Unix() + timeout,
-				Payload: args[2:],
+				Payload: strings.Join(args[2:], " "),
 			}
 			wa.Start()
 
@@ -362,7 +362,7 @@ func (this *Event) Run(args ...string) {
 type WatchApp struct {
 	Name    string
 	Timeout int64
-	Payload []string
+	Payload string
 }
 
 func (this *WatchApp) Start() {
