@@ -2,27 +2,35 @@
   "name": "autumn",
   "description": "A pothead who is a DJ when she can be but just lazy usually.",
   "options": {
-    "icon": "autumn.icns"
+    "icon": "autumn.icns",
+    "greeting_happy": "\"Yo what's up!\"",
+    "greeting_sad": "Hey.",
+    "greeting_angry": "\"WTF yo?!\""
   },
   "events": {
     "wallpaper": [
       "autumn.wallpaper.png"
     ],
     "notify": [
-      "Hey man "
+      "[greeting_happy] \"I got a gig this Wednesday at this terrible club at 3a. You wanna come?\" [icon]",
+      "[greeting_sad] \"Can I borrow your headphones? I just dyed my hair and I don't want to use mine.\" [icon]",
+      "[greeting_angry] \"Did you eat that whole pizza you bought?! I was going to have some and not pay you!\" [icon]"
     ],
-    "quicklook": [],
-    "movefile": [],
-    "openfile": [],
-    "makedir": [],
-    "makefile": [],
-    "openapp": [],
-    "closeapp": [],
-    "brightness": [],
-    "alert": [],
-    "volume": [],
-    "watch": [],
-    "startaudio": [],
-    "stopaudio": []
+    "quicklook": [
+      "/Users/mikeflynn/Desktop/chd10-demo/autumn.quicklook001.jpg && notify [greeting_happy] \"This is the best album ever. It just gets me so pumped ya know?\" [icon]",
+      "/Users/mikeflynn/Desktop/chd10-demo/autumn.quicklook002.jpg && notify [greeting_sad] \"*cough* Dude, u wanna get down on this?\" [icon]"
+    ],
+    "openapp": [
+      "Messages && notify [greeting_happy] \"Did you get any messages for me?\" [icon] && sleep 5 && closeapp Messages"
+    ],
+    "brightness": [
+      "10 && notify [greeting_angry] \"Dude. It is way too bright in here!\" [icon]"
+    ],
+    "watch": [
+      "Safari 60 && notify [greeting_sad] \"I gotta use the internet for a second, ok?\" [icon]"
+    ],
+    "startaudio": [
+      "/Users/mikeflynn/Desktop/chd10-demo/edm.mov && sleep 60 && stopaudio"
+    ]
   }
 }

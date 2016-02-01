@@ -21,12 +21,14 @@ var ListProfiles *bool
 var StartService *string
 var ResourceLocation *string
 var Command *string
+var Debug *bool
 
 func main() {
 	StartRepl = flag.Bool("repl", false, "Start an interactive repl for command testing.")
 	StartService = flag.String("service", "", "Start the service with the given profile JSON config file.")
 	ResourceLocation = flag.String("resources", "/Applications/ComputerRoommate/Contents/Resources/", "The location of the resource files.")
 	Command = flag.String("command", "", "A run and done command.")
+	Debug = flag.Bool("v", false, "Adds more verbose messaging to std out.")
 	flag.Parse()
 
 	if *StartRepl {
@@ -68,16 +70,14 @@ func main() {
 func service(roommate *Profile, top int) {
 	fmt.Println("Starting super annoying service in the background.")
 
-	go func() {
-		for {
-			if rand.Intn(top) == 1 {
-				go parseCommand(roommate.GetRandCmd())
-			}
-
-			seconds, _ := time.ParseDuration("10s")
-			time.Sleep(seconds)
+	for {
+		if rand.Intn(top) == 1 {
+			go parseCommand(roommate.GetRandCmd())
 		}
-	}()
+
+		seconds, _ := time.ParseDuration("10s")
+		time.Sleep(seconds)
+	}
 }
 
 func repl() {
@@ -107,11 +107,15 @@ func parseCommand(command string) bool {
 	commands := strings.Split(command, "&&")
 
 	for _, command := range commands {
+		command := strings.TrimSpace(command)
 		if command == "" {
 			continue
 		}
+
+		DebugMsg(command)
+
 		// Break the command in to parts while being respectful of quoted strings.
-		r := regexp.MustCompile("'.+'|\".+\"|\\S+")
+		r := regexp.MustCompile("'[^']+'|\"[^\"]+\"|\\S+")
 		args := r.FindAllString(command, -1)
 		for k, v := range args {
 			args[k] = strings.Replace(v, "\"", "", -1)
@@ -178,5 +182,11 @@ func watchPs() {
 				}
 			}
 		}
+	}
+}
+
+func DebugMsg(msg string) {
+	if *Debug {
+		fmt.Println(msg)
 	}
 }

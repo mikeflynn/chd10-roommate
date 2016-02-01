@@ -38,8 +38,8 @@ var EventList map[string]*Event = map[string]*Event{
 				return "Not enough arguments."
 			} else {
 				n := &Notification{
-					Body:  args[0],
-					Title: args[1],
+					Title: args[0],
+					Body:  args[1],
 					Image: absPath(args[2]),
 				}
 
@@ -59,19 +59,15 @@ var EventList map[string]*Event = map[string]*Event{
 			if len(args) == 0 {
 				return "Not enough arguments."
 			} else {
-				cmd := exec.Command("qlmanage", "-p", absPath(args[0]))
-				var out bytes.Buffer
-				cmd.Stdout = &out
-				err := cmd.Run()
-				if err != nil {
-					return err.Error()
-				}
+				go func() {
+					cmd := exec.Command("qlmanage", "-p", absPath(args[0]))
+					var out bytes.Buffer
+					cmd.Stdout = &out
+					cmd.Run()
+				}()
 
-				list := out.String()
-				if list != "" {
-					return list
-				}
-
+				// Give the quicklook a chance to fire.
+				time.Sleep(500 * time.Millisecond)
 				return "Quicklook popped."
 			}
 		},

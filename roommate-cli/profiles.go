@@ -28,7 +28,11 @@ func (this *Profile) GetCmd(event string) string {
 
 	// Get a random command call
 	if val, ok := this.EventData[event]; ok {
-		command = event + " " + strings.TrimSpace(val[rand.Intn(len(val)-1)])
+		if len(val)-1 == 0 {
+			command = event + " " + strings.TrimSpace(val[0])
+		} else {
+			command = event + " " + strings.TrimSpace(val[rand.Intn(len(val)-1)])
+		}
 	} else {
 		return ""
 	}
