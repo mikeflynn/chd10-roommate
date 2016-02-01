@@ -102,20 +102,29 @@ func repl() {
 }
 
 func parseCommand(command string) bool {
-	r := regexp.MustCompile("'.+'|\".+\"|\\S+")
-	args := r.FindAllString(command, -1)
-	for k, v := range args {
-		args[k] = strings.Replace(v, "\"", "", -1)
-	}
+	// Look for chained commands
+	commands := strings.Split(command, "&&")
 
-	if args[0] == "commands" {
-		fmt.Println(ShowCommands())
-	} else if args[0] == "quit" || args[0] == "exit" {
-		os.Exit(0)
-	} else if event, ok := EventList[args[0]]; ok {
-		event.Run(args[1:]...)
-	} else {
-		return false
+	for _, command := range commands {
+		if command == "" {
+			continue
+		}
+		// Break the command in to parts while being respectful of quoted strings.
+		r := regexp.MustCompile("'.+'|\".+\"|\\S+")
+		args := r.FindAllString(command, -1)
+		for k, v := range args {
+			args[k] = strings.Replace(v, "\"", "", -1)
+		}
+
+		if args[0] == "commands" {
+			fmt.Println(ShowCommands())
+		} else if *StartRepl && (args[0] == "quit" || args[0] == "exit") {
+			os.Exit(0)
+		} else if event, ok := EventList[args[0]]; ok {
+			event.Run(args[1:]...)
+		} else {
+			return false
+		}
 	}
 
 	return true

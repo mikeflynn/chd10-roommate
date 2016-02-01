@@ -265,6 +265,10 @@ var EventList map[string]*Event = map[string]*Event{
 		Description:    "Watches an app for the specified time and closes it.",
 		ArgDescription: "<app name> <seconds to watch>",
 		Fn: func(args ...string) string {
+			if !*StartRepl && *StartService == "" {
+				return "Watch command only available in repl or service."
+			}
+
 			if len(args) == 0 {
 				return "Not enough arguments."
 			}
@@ -279,10 +283,16 @@ var EventList map[string]*Event = map[string]*Event{
 				}
 			}
 
+			payload := ""
+
+			if len(args) > 2 {
+				payload = strings.Join(args[2:], " ")
+			}
+
 			wa := &WatchApp{
 				Name:    appName,
 				Timeout: time.Now().Unix() + timeout,
-				Payload: strings.Join(args[2:], " "),
+				Payload: payload,
 			}
 			wa.Start()
 
