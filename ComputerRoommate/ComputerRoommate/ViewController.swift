@@ -10,7 +10,16 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    @IBAction func imageClicked(sender: AnyObject) {
+    @IBAction func selectProfile(sender: NSButton) {
+        print("Clicked!");
+        print(sender.title);
+        
+        let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
+        let task = NSTask()
+        task.launchPath = path
+        task.arguments = ["-service"]
+        task.launch()
+        
         NSApplication.sharedApplication().keyWindow?.close()
     }
     

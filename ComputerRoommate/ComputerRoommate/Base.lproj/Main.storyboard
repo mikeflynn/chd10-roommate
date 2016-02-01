@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <scenes>
@@ -699,36 +700,21 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AbI-b5-Y2q">
-                                <rect key="frame" x="7" y="-57" width="318" height="574"/>
+                                <rect key="frame" x="25" y="10" width="318" height="441"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cell-background" id="G4u-ob-1Ms"/>
                             </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1v-m8-ABQ">
-                                <rect key="frame" x="331" y="-57" width="318" height="574"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cell-background" id="aHx-7H-ZHn"/>
-                            </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ax4-TH-aCJ">
-                                <rect key="frame" x="657" y="-57" width="318" height="574"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cell-background" id="o0n-9N-DRI"/>
-                            </imageView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9s1-uN-vjR">
-                                <rect key="frame" x="46" y="180" width="216" height="243"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="roommatePicker-stoner-size" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="28a-MW-ddx">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="imageClicked:" target="XfG-lQ-9wD" id="5zz-Mm-xoI"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wt8-I0-kx3">
-                                <rect key="frame" x="697" y="180" width="216" height="243"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="roommatePicker-creepy-sized" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Q7b-Vd-gz3">
+                                <rect key="frame" x="56" y="180" width="216" height="243"/>
+                                <buttonCell key="cell" type="square" title="autumn" bezelStyle="shadowlessSquare" image="roommatePicker-stoner-size" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="28a-MW-ddx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="selectProfile:" target="XfG-lQ-9wD" id="uzU-7e-8GW"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-d5-I7N">
-                                <rect key="frame" x="44" y="107" width="172" height="20"/>
+                                <rect key="frame" x="54" y="107" width="172" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* dubstep DJ" id="QTW-cu-gT1">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -736,39 +722,61 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qOv-qy-TPs">
-                                <rect key="frame" x="44" y="75" width="227" height="20"/>
+                                <rect key="frame" x="54" y="75" width="227" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* 420🍁 friendly" id="6ag-M9-osJ">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-IW-BYO">
-                                <rect key="frame" x="44" y="42" width="202" height="20"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* hella chill" id="0xG-Fp-9Hk">
-                                    <font key="font" size="15" name="Monaco"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05S-HQ-PdI">
-                                <rect key="frame" x="44" y="129" width="227" height="35"/>
+                                <rect key="frame" x="54" y="129" width="227" height="35"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Autumn, 26" id="Ewl-ma-3o6">
                                     <font key="font" metaFont="systemBold" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hfm-NW-Db6">
-                                <rect key="frame" x="323" y="86" width="4" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="fwc-HH-q26">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-IW-BYO">
+                                <rect key="frame" x="54" y="42" width="202" height="20"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* hella chill" id="0xG-Fp-9Hk">
+                                    <font key="font" size="15" name="Monaco"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ax4-TH-aCJ">
+                                <rect key="frame" x="721" y="12" width="318" height="439"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cell-background" id="o0n-9N-DRI"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-4i-vYk">
+                                <rect key="frame" x="753" y="140" width="87" height="24"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zed, 47" id="WBr-iS-Oci">
+                                    <font key="font" metaFont="systemBold" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wt8-I0-kx3">
+                                <rect key="frame" x="755" y="180" width="216" height="243"/>
+                                <buttonCell key="cell" type="square" title="zed" bezelStyle="shadowlessSquare" image="roommatePicker-creepy-sized" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Q7b-Vd-gz3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectProfile:" target="XfG-lQ-9wD" id="EHN-TG-Net"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-nO-YBF">
+                                <rect key="frame" x="753" y="42" width="227" height="20"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* Actually, pets okay" id="mvF-h8-L9X">
+                                    <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XAU-cL-0OC">
-                                <rect key="frame" x="695" y="107" width="230" height="20"/>
+                                <rect key="frame" x="753" y="107" width="230" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* Open to new experiences" id="xaD-Qs-lJI">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -776,22 +784,29 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjE-hd-o9u">
-                                <rect key="frame" x="695" y="75" width="227" height="20"/>
+                                <rect key="frame" x="753" y="75" width="227" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* No pets" id="bL2-ht-iQ5">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T1v-m8-ABQ">
+                                <rect key="frame" x="374" y="10" width="318" height="441"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cell-background" id="aHx-7H-ZHn"/>
+                            </imageView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pP-5K-NZQ">
-                                <rect key="frame" x="372" y="180" width="216" height="243"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="college-student-studying-scaled" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LVh-eL-Mbb">
+                                <rect key="frame" x="415" y="180" width="216" height="243"/>
+                                <buttonCell key="cell" type="square" title="phillip" bezelStyle="shadowlessSquare" image="college-student-studying-scaled" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LVh-eL-Mbb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="selectProfile:" target="XfG-lQ-9wD" id="kAu-6u-BS7"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJA-Vk-WgZ">
-                                <rect key="frame" x="370" y="107" width="227" height="20"/>
+                                <rect key="frame" x="413" y="107" width="227" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* Pediatrics intern" id="oQW-8v-Vab">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -799,7 +814,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cKe-Be-UAp">
-                                <rect key="frame" x="370" y="42" width="215" height="20"/>
+                                <rect key="frame" x="413" y="42" width="215" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* Men only" id="KqO-jr-oiw">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -807,7 +822,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sbb-OB-gk1">
-                                <rect key="frame" x="370" y="75" width="257" height="20"/>
+                                <rect key="frame" x="413" y="75" width="257" height="20"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* 8pm - 6am study hours" id="xr2-4H-IgP">
                                     <font key="font" size="15" name="Monaco"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -815,35 +830,15 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AnT-OQ-8na">
-                                <rect key="frame" x="370" y="140" width="109" height="24"/>
+                                <rect key="frame" x="413" y="140" width="109" height="24"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Phillip, 28" id="BAj-4l-EgC">
                                     <font key="font" metaFont="systemBold" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-4i-vYk">
-                                <rect key="frame" x="695" y="140" width="87" height="24"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Zed, 47" id="WBr-iS-Oci">
-                                    <font key="font" metaFont="systemBold" size="20"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-nO-YBF">
-                                <rect key="frame" x="695" y="42" width="227" height="20"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="* Actually, pets okay" id="mvF-h8-L9X">
-                                    <font key="font" size="15" name="Monaco"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aI3-yi-7UQ">
-                                <rect key="frame" x="983" y="-101" width="55" height="663"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cutoff-cell" id="iFJ-5a-aNa"/>
-                            </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-8J-oyw">
-                                <rect key="frame" x="212" y="464" width="557" height="48"/>
+                                <rect key="frame" x="255" y="469" width="557" height="48"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="title-no-border" id="JVr-OL-SER"/>
                             </imageView>
                         </subviews>
@@ -874,7 +869,6 @@
     <resources>
         <image name="cell-background" width="643" height="888"/>
         <image name="college-student-studying-scaled" width="377" height="422"/>
-        <image name="cutoff-cell" width="114" height="888"/>
         <image name="roommatePicker-creepy-sized" width="150.80000305175781" height="168.80000305175781"/>
         <image name="roommatePicker-stoner-size" width="377" height="422"/>
         <image name="title-no-border" width="1080" height="98"/>

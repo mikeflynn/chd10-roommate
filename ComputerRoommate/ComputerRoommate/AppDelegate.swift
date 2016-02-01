@@ -14,27 +14,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var statusMenu: NSMenu?
     var statusItem: NSStatusItem? = nil;
-    
-//    @IBAction func statusMenuItemSelected(sender: AnyObject) {
-//        let alert = NSAlert()
-//        alert.alertStyle = .InformationalAlertStyle
-//        alert.messageText = "yeah i'll totally get that to you soon\n✌️✌️✌️"
-//        alert.icon = NSImage(named: "roommatePicker-stoner.jpg")
-//        alert.runModal()
 
     @IBAction func statusMenuItemSelected(sender: NSMenuItem) {
         let clipath = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
         let icopath = NSBundle.mainBundle().pathForResource("icon", ofType: "icns")
         
         if sender.title == "Knock on door" {
-            /*
-            let movpath = NSBundle.mainBundle().pathForResource("edm", ofType: "mov")
-            let task = NSTask()
-            task.launchPath = clipath
-            task.arguments = ["startaudio", movpath!]
-            task.launch() 
-            */
-            
             // Drop audio
             let task = NSTask()
             task.launchPath = clipath
@@ -55,11 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
-        let task = NSTask()
-        task.launchPath = path
-        task.arguments = ["-service"]
-        task.launch()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
