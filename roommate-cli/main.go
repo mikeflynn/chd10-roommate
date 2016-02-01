@@ -17,11 +17,13 @@ import (
 var StartRepl *bool
 var ListProfiles *bool
 var StartService *string
+var ResourceLocation *string
 
 func main() {
 	StartRepl = flag.Bool("repl", false, "Start an interactive repl for command testing.")
 	ListProfiles = flag.Bool("list-profiles", false, "Lists all roommate profiles.")
 	StartService = flag.String("service", "", "Start the service with the given profile name.")
+	ResourceLocation = flag.String("resources", "/Applications/ComputerRoommate/Contents/Resources/", "The location of the resource files.")
 	flag.Parse()
 
 	if *StartRepl {

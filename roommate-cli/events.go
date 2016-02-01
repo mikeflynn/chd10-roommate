@@ -24,7 +24,7 @@ var EventList map[string]*Event = map[string]*Event{
 			if len(args) == 0 {
 				return "Not enough arguments."
 			} else {
-				cmd := fmt.Sprintf("tell application \"Finder\" to set desktop picture to POSIX file \"%s\"", args[0])
+				cmd := fmt.Sprintf("tell application \"Finder\" to set desktop picture to POSIX file \"%s\"", absPath(args[0]))
 				actionScript(cmd)
 			}
 			return "Wallpaper set."
@@ -40,7 +40,7 @@ var EventList map[string]*Event = map[string]*Event{
 				n := &Notification{
 					Body:  args[0],
 					Title: args[1],
-					Image: args[2],
+					Image: absPath(args[2]),
 				}
 
 				err := n.notify()
@@ -59,7 +59,7 @@ var EventList map[string]*Event = map[string]*Event{
 			if len(args) == 0 {
 				return "Not enough arguments."
 			} else {
-				cmd := exec.Command("qlmanage", "-p", args[0])
+				cmd := exec.Command("qlmanage", "-p", absPath(args[0]))
 				var out bytes.Buffer
 				cmd.Stdout = &out
 				err := cmd.Run()
@@ -238,7 +238,7 @@ var EventList map[string]*Event = map[string]*Event{
 			if len(args) < 6 {
 				return "Not enough arguments."
 			} else {
-				if output, err := storedActionScript("alert.applescript", args[0], args[1], asPath(args[2]), args[3], args[4]); err != nil {
+				if output, err := storedActionScript("alert.applescript", args[0], args[1], asPath(absPath(args[2])), args[3], args[4]); err != nil {
 					return err.Error()
 				} else {
 					return output
@@ -298,9 +298,9 @@ var EventList map[string]*Event = map[string]*Event{
 			}
 
 			if *StartRepl {
-				go termCommand("afplay", args[0])
+				go termCommand("afplay", absPath(args[0]))
 			} else {
-				if out, err := termCommand("afplay", args[0]); err != nil {
+				if out, err := termCommand("afplay", absPath(args[0])); err != nil {
 					return err.Error()
 				} else if out != "" {
 					return out
@@ -463,4 +463,12 @@ func asPath(path string) string {
 	}
 
 	return strings.Replace(path, "/", ":", -1)
+}
+
+func absPath(path string) string {
+	if !strings.HasPrefix(path, "/") {
+		path = *ResourceLocation + path
+	}
+
+	return path
 }
