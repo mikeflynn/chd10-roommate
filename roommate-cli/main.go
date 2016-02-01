@@ -20,11 +20,13 @@ var StartRepl *bool
 var ListProfiles *bool
 var StartService *string
 var ResourceLocation *string
+var Command *string
 
 func main() {
 	StartRepl = flag.Bool("repl", false, "Start an interactive repl for command testing.")
 	StartService = flag.String("service", "", "Start the service with the given profile JSON config file.")
 	ResourceLocation = flag.String("resources", "/Applications/ComputerRoommate/Contents/Resources/", "The location of the resource files.")
+	Command = flag.String("command", "", "A run and done command.")
 	flag.Parse()
 
 	if *StartRepl {
@@ -54,8 +56,8 @@ func main() {
 
 		go watchPs()
 		service(profile, 6) // Hard coded to fire once a minute.
-	} else if len(os.Args) > 1 {
-		parseCommand(strings.Join(os.Args[1:], " "))
+	} else if *Command != "" {
+		parseCommand(*Command)
 		os.Exit(0)
 	} else {
 		fmt.Println("You didn't tell me to do anything. Try -help\n")
