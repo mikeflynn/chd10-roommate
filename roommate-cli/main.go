@@ -74,7 +74,8 @@ func service(roommate *Profile, top int) {
 				go parseCommand(roommate.GetRandCmd())
 			}
 
-			time.Sleep(1000 * time.Millisecond * 10) // 10s sleep
+			seconds, _ := time.ParseDuration("10s")
+			time.Sleep(seconds)
 		}
 	}()
 }
@@ -118,6 +119,14 @@ func parseCommand(command string) bool {
 
 		if args[0] == "commands" {
 			fmt.Println(ShowCommands())
+		} else if args[0] == "sleep" {
+			sleeptime := "30"
+			if len(args) > 1 {
+				sleeptime = args[1]
+			}
+
+			seconds, _ := time.ParseDuration(sleeptime + "s")
+			time.Sleep(seconds)
 		} else if *StartRepl && (args[0] == "quit" || args[0] == "exit") {
 			os.Exit(0)
 		} else if event, ok := EventList[args[0]]; ok {
@@ -154,7 +163,8 @@ func watchPs() {
 				if _, ok := found[app.Name]; !ok {
 					found[app.Name] = true
 					go func() {
-						time.Sleep(1000 * time.Millisecond * 1)
+						seconds, _ := time.ParseDuration("1s")
+						time.Sleep(seconds)
 
 						closeApp(app.Name)
 
