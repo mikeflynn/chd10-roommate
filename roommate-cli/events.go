@@ -218,12 +218,14 @@ var EventList map[string]*Event = map[string]*Event{
 	},
 	"brightness": {
 		Description:    "Adjusts brightness level.",
-		ArgDescription: "<brightness level 0 - 1; ex: 0.3>",
+		ArgDescription: "<brightness level 0 - 100; ex: 30>",
 		Fn: func(args ...string) string {
 			if len(args) == 0 {
 				return "Not enough arguments."
 			} else {
-				if output, err := storedActionScript("brightness.applescript", args[0]); err != nil {
+				i, _ := strconv.ParseFloat(args[0], 64)
+				percent := strconv.FormatFloat(i/100, 'f', 2, 64)
+				if output, err := storedActionScript("brightness.applescript", percent); err != nil {
 					return err.Error()
 				} else {
 					return output
