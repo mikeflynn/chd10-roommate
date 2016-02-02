@@ -17,20 +17,20 @@
       "[greeting_angry] \"Did you eat that whole pizza you bought?! I was going to have some and not pay you!\" [icon]"
     ],
     "quicklook": [
-      "/Users/mikeflynn/Desktop/chd10-demo/autumn.quicklook001.jpg && notify [greeting_happy] \"This is the best album ever. It just gets me so pumped ya know?\" [icon]",
-      "/Users/mikeflynn/Desktop/chd10-demo/autumn.quicklook002.jpg && notify [greeting_sad] \"*cough* Dude, u wanna get down on this?\" [icon]"
+      "autumn.quicklook001.jpg && notify [greeting_happy] \"This is the best album ever. It just gets me so pumped ya know?\" [icon]",
+      "autumn.quicklook002.jpg && notify [greeting_sad] \"*cough* Dude, u wanna get down on this?\" [icon]"
     ],
     "openapp": [
       "Messages && notify [greeting_happy] \"Did you get any messages for me?\" [icon] && sleep 5 && closeapp Messages"
     ],
     "brightness": [
-      "10 && notify [greeting_angry] \"Dude. It is way too bright in here!\" [icon]"
+      "10 && notify [greeting_angry] \"Dude. It is way too bright in here! Lets turn that brightness down!\" [icon]"
     ],
     "watch": [
       "Safari 60 && notify [greeting_sad] \"I gotta use the internet for a second, ok?\" [icon]"
     ],
     "startaudio": [
-      "/Users/mikeflynn/Desktop/chd10-demo/edm.mov && sleep 60 && stopaudio"
+      "edm.mp3 && sleep 60 && stopaudio"
     ]
   }
 }

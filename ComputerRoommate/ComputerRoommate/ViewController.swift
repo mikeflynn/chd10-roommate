@@ -11,13 +11,16 @@ import Cocoa
 class ViewController: NSViewController {
     
     @IBAction func selectProfile(sender: NSButton) {
-        print("Clicked!");
-        print(sender.title);
+        let json = NSBundle.mainBundle().pathForResource(sender.title, ofType: "json")
+        
+        var resourcesParts = json!.characters.split("/").map(String.init)
+        resourcesParts.removeAtIndex(resourcesParts.count-1)
+        let resourcesPath = resourcesParts.joinWithSeparator("/")
         
         let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
         let task = NSTask()
         task.launchPath = path
-        task.arguments = ["-service"]
+        task.arguments = ["-service="+json!, "-resources=/"+resourcesPath+"/"]
         task.launch()
         
         NSApplication.sharedApplication().keyWindow?.close()

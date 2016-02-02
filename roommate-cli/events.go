@@ -403,20 +403,22 @@ func storedActionScript(scriptName string, params ...string) (string, error) {
 	var data []byte
 	var err error
 
+	tempDir := "/tmp/"
+
 	// Pull from asset store
 	if data, err = Asset("scripts/" + scriptName); err != nil {
 		return "", err
 	}
 
-	if err = ioutil.WriteFile("/tmp/"+scriptName, []byte(data), 0644); err != nil {
+	if err = ioutil.WriteFile(tempDir+scriptName, []byte(data), 0644); err != nil {
 		return "", err
 	}
 
-	if err = os.Chmod("/tmp/"+scriptName, 0777); err != nil {
+	if err = os.Chmod(tempDir+scriptName, 0777); err != nil {
 		return "", err
 	}
 
-	cmd := exec.Command("/tmp/"+scriptName, params...)
+	cmd := exec.Command(tempDir+scriptName, params...)
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err = cmd.Run()

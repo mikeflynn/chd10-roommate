@@ -17,24 +17,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func statusMenuItemSelected(sender: NSMenuItem) {
         let clipath = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
-        let icopath = NSBundle.mainBundle().pathForResource("icon", ofType: "icns")
+        //let iconpath = NSBundle.mainBundle().pathForResource("door", ofType: "ico")
         
         if sender.title == "Knock on door" {
             // Drop audio
             let task = NSTask()
             task.launchPath = clipath
-            task.arguments = ["volume", "15"]
+            task.arguments = ["-command=volume 5"]
             task.launch()
         } else if sender.title == "Bang on door" {
             let task = NSTask()
             task.launchPath = clipath
-            task.arguments = ["volume", "5"]
+            task.arguments = ["-command=stopaudio"]
             task.launch()
         } else if sender.title == "Ask for rent" {
-            let task = NSTask()
-            task.launchPath = clipath
-            task.arguments = ["alert", "yeah i'll totally get that to you soon ✌️✌️✌️", "Right, about that...", icopath!, "Wait", "Wait"]
-            task.launch()
+            let alert = NSAlert()
+            alert.messageText = "Right..."
+            alert.addButtonWithTitle("Wait")
+            alert.addButtonWithTitle("Wait")
+            alert.icon = NSBundle.mainBundle().imageForResource("door")
+            alert.informativeText = "Yeah...I'll totally get that to you soon ✌️✌️✌️"
+            
+            alert.runModal()
         }
     }
     

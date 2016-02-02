@@ -705,9 +705,9 @@
                             </imageView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9s1-uN-vjR">
                                 <rect key="frame" x="56" y="180" width="216" height="243"/>
-                                <buttonCell key="cell" type="square" title="autumn" bezelStyle="shadowlessSquare" image="roommatePicker-stoner-size" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="28a-MW-ddx">
+                                <buttonCell key="cell" type="square" title="autumn" bezelStyle="shadowlessSquare" image="roommatePicker-stoner-size" imagePosition="overlaps" alignment="left" imageScaling="proportionallyUpOrDown" inset="2" id="28a-MW-ddx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="1"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="selectProfile:" target="XfG-lQ-9wD" id="uzU-7e-8GW"/>
@@ -759,9 +759,9 @@
                             </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wt8-I0-kx3">
                                 <rect key="frame" x="755" y="180" width="216" height="243"/>
-                                <buttonCell key="cell" type="square" title="zed" bezelStyle="shadowlessSquare" image="roommatePicker-creepy-sized" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Q7b-Vd-gz3">
+                                <buttonCell key="cell" type="square" title="zed" bezelStyle="shadowlessSquare" image="roommatePicker-creepy-sized" imagePosition="overlaps" alignment="left" imageScaling="proportionallyUpOrDown" inset="2" id="Q7b-Vd-gz3">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="1"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="selectProfile:" target="XfG-lQ-9wD" id="EHN-TG-Net"/>
@@ -797,9 +797,9 @@
                             </imageView>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pP-5K-NZQ">
                                 <rect key="frame" x="415" y="180" width="216" height="243"/>
-                                <buttonCell key="cell" type="square" title="phillip" bezelStyle="shadowlessSquare" image="college-student-studying-scaled" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="LVh-eL-Mbb">
+                                <buttonCell key="cell" type="square" title="phillip" bezelStyle="shadowlessSquare" image="college-student-studying-scaled" imagePosition="overlaps" alignment="left" imageScaling="proportionallyUpOrDown" inset="2" id="LVh-eL-Mbb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="1"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="selectProfile:" target="XfG-lQ-9wD" id="kAu-6u-BS7"/>
