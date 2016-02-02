@@ -305,15 +305,8 @@ var EventList map[string]*Event = map[string]*Event{
 				return "Not enough arguments."
 			}
 
-			if *StartRepl {
-				go termCommand("afplay", absPath(args[0]))
-			} else {
-				if out, err := termCommand("afplay", absPath(args[0])); err != nil {
-					return err.Error()
-				} else if out != "" {
-					return out
-				}
-			}
+			go termCommand("afplay", absPath(args[0]))
+			time.Sleep(500 * time.Millisecond)
 
 			return "Audio started"
 		},
