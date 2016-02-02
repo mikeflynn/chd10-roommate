@@ -68,8 +68,6 @@ func main() {
 }
 
 func service(roommate *Profile, top int) {
-	fmt.Println("Starting super annoying service in the background.")
-
 	for {
 		if rand.Intn(top) == 1 {
 			go parseCommand(roommate.GetRandCmd())

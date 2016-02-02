@@ -233,7 +233,7 @@ var EventList map[string]*Event = map[string]*Event{
 		Description:    "Generates OS X alert box.",
 		ArgDescription: "<body> <title> <icon path> <button_1_text> <button_2_text>",
 		Fn: func(args ...string) string {
-			if len(args) < 6 {
+			if len(args) < 5 {
 				return "Not enough arguments."
 			} else {
 				if output, err := storedActionScript("alert.applescript", args[0], args[1], asPath(absPath(args[2])), args[3], args[4]); err != nil {

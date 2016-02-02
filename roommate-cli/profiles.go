@@ -4,6 +4,7 @@ import (
 	"math/rand"
 	"regexp"
 	"strings"
+	"time"
 )
 
 type Profile struct {
@@ -19,7 +20,8 @@ func (this *Profile) GetRandCmd() string {
 		keys = append(keys, k)
 	}
 
-	rk := rand.Intn(len(keys) - 1)
+	rand.Seed(time.Now().Unix())
+	rk := rand.Intn(len(keys))
 	return this.GetCmd(keys[rk])
 }
 
@@ -28,10 +30,11 @@ func (this *Profile) GetCmd(event string) string {
 
 	// Get a random command call
 	if val, ok := this.EventData[event]; ok {
-		if len(val)-1 == 0 {
+		if len(val) == 1 {
 			command = event + " " + strings.TrimSpace(val[0])
 		} else {
-			command = event + " " + strings.TrimSpace(val[rand.Intn(len(val)-1)])
+			rand.Seed(time.Now().Unix())
+			command = event + " " + strings.TrimSpace(val[rand.Intn(len(val))])
 		}
 	} else {
 		return ""
