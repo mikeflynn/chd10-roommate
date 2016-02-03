@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02304E891C62A44100931B91 /* phillip.quicklook002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02304E861C62A44100931B91 /* phillip.quicklook002.jpg */; };
+		02304E8A1C62A44100931B91 /* phillip.quicklook001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02304E871C62A44100931B91 /* phillip.quicklook001.jpg */; };
+		02304E8B1C62A44100931B91 /* phillip.wallpaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 02304E881C62A44100931B91 /* phillip.wallpaper.png */; };
+		02304E8D1C62A44E00931B91 /* phillip.json in Resources */ = {isa = PBXBuildFile; fileRef = 02304E8C1C62A44E00931B91 /* phillip.json */; };
+		02304E8F1C62A50200931B91 /* zed.json in Resources */ = {isa = PBXBuildFile; fileRef = 02304E8E1C62A50200931B91 /* zed.json */; };
+		02304E911C62A56C00931B91 /* zed.wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02304E901C62A56C00931B91 /* zed.wallpaper.jpg */; };
+		02304E941C62A79D00931B91 /* zed.quicklook002.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02304E921C62A79D00931B91 /* zed.quicklook002.jpg */; };
+		02304E951C62A79D00931B91 /* zed.quicklook001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02304E931C62A79D00931B91 /* zed.quicklook001.jpg */; };
 		02559E921C5F390100D82D2C /* zed.icns in Resources */ = {isa = PBXBuildFile; fileRef = 02559E901C5F390100D82D2C /* zed.icns */; };
 		02559E931C5F390100D82D2C /* phillip.icns in Resources */ = {isa = PBXBuildFile; fileRef = 02559E911C5F390100D82D2C /* phillip.icns */; };
 		02559E971C607C9A00D82D2C /* autumn.json in Resources */ = {isa = PBXBuildFile; fileRef = 02559E961C607C9A00D82D2C /* autumn.json */; };
@@ -52,6 +60,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02304E861C62A44100931B91 /* phillip.quicklook002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phillip.quicklook002.jpg; sourceTree = "<group>"; };
+		02304E871C62A44100931B91 /* phillip.quicklook001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phillip.quicklook001.jpg; sourceTree = "<group>"; };
+		02304E881C62A44100931B91 /* phillip.wallpaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phillip.wallpaper.png; sourceTree = "<group>"; };
+		02304E8C1C62A44E00931B91 /* phillip.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = phillip.json; sourceTree = "<group>"; };
+		02304E8E1C62A50200931B91 /* zed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zed.json; sourceTree = "<group>"; };
+		02304E901C62A56C00931B91 /* zed.wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zed.wallpaper.jpg; sourceTree = "<group>"; };
+		02304E921C62A79D00931B91 /* zed.quicklook002.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zed.quicklook002.jpg; sourceTree = "<group>"; };
+		02304E931C62A79D00931B91 /* zed.quicklook001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = zed.quicklook001.jpg; sourceTree = "<group>"; };
 		02559E901C5F390100D82D2C /* zed.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = zed.icns; sourceTree = "<group>"; };
 		02559E911C5F390100D82D2C /* phillip.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = phillip.icns; sourceTree = "<group>"; };
 		02559E961C607C9A00D82D2C /* autumn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = autumn.json; sourceTree = "<group>"; };
@@ -113,7 +129,13 @@
 		026C52BA1C5453DE005FDFC7 /* actions */ = {
 			isa = PBXGroup;
 			children = (
+				02304E861C62A44100931B91 /* phillip.quicklook002.jpg */,
+				02304E871C62A44100931B91 /* phillip.quicklook001.jpg */,
+				02304E881C62A44100931B91 /* phillip.wallpaper.png */,
 				02559E9A1C60860B00D82D2C /* door.ico */,
+				02304E921C62A79D00931B91 /* zed.quicklook002.jpg */,
+				02304E931C62A79D00931B91 /* zed.quicklook001.jpg */,
+				02304E901C62A56C00931B91 /* zed.wallpaper.jpg */,
 				02559E9E1C60886F00D82D2C /* autumn.quicklook002.jpg */,
 				02559E9F1C60886F00D82D2C /* autumn.quicklook001.jpg */,
 				02559E901C5F390100D82D2C /* zed.icns */,
@@ -189,6 +211,8 @@
 		F5A699FF1C535FA600C3E158 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				02304E8E1C62A50200931B91 /* zed.json */,
+				02304E8C1C62A44E00931B91 /* phillip.json */,
 				02559E961C607C9A00D82D2C /* autumn.json */,
 				02559EAE1C60955000D82D2C /* roommate-cli */,
 				8249BBF61C5580C00013EC49 /* title-no-border.png */,
@@ -307,27 +331,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02304E8B1C62A44100931B91 /* phillip.wallpaper.png in Resources */,
 				F5A69A031C53FD8600C3E158 /* roommatePicker-creepy.jpg in Resources */,
 				8249BBEF1C556F250013EC49 /* roommatePicker-stoner-size.png in Resources */,
 				026C52D41C557C2D005FDFC7 /* edm.mp3 in Resources */,
 				F5A69A011C5365CA00C3E158 /* rooommatePicker-neat.jpg in Resources */,
 				026C52D01C556424005FDFC7 /* autumn.wallpaper.png in Resources */,
+				02304E891C62A44100931B91 /* phillip.quicklook002.jpg in Resources */,
 				8249BBF71C5580C00013EC49 /* title-no-border.png in Resources */,
 				02559E921C5F390100D82D2C /* zed.icns in Resources */,
 				02559E971C607C9A00D82D2C /* autumn.json in Resources */,
 				02559E9B1C60860B00D82D2C /* door.ico in Resources */,
 				F5A699D71C535B9400C3E158 /* Assets.xcassets in Resources */,
 				02559EA01C60886F00D82D2C /* autumn.quicklook002.jpg in Resources */,
+				02304E951C62A79D00931B91 /* zed.quicklook001.jpg in Resources */,
 				F5A699DA1C535B9400C3E158 /* Main.storyboard in Resources */,
 				02559EA11C60886F00D82D2C /* autumn.quicklook001.jpg in Resources */,
+				02304E8F1C62A50200931B91 /* zed.json in Resources */,
+				02304E941C62A79D00931B91 /* zed.quicklook002.jpg in Resources */,
+				02304E8D1C62A44E00931B91 /* phillip.json in Resources */,
 				8249BBEA1C556EFD0013EC49 /* college-student-studying-scaled.png in Resources */,
 				8249BBEE1C556F250013EC49 /* roommatePicker-creepy-sized.png in Resources */,
 				8249BBF11C557AF40013EC49 /* cell-background.png in Resources */,
 				026C52CB1C546556005FDFC7 /* autumn.icns in Resources */,
 				8249BBF51C557FBC0013EC49 /* title.png in Resources */,
+				02304E911C62A56C00931B91 /* zed.wallpaper.jpg in Resources */,
 				8249BBF31C557CCC0013EC49 /* cutoff-cell.png in Resources */,
 				02559E931C5F390100D82D2C /* phillip.icns in Resources */,
 				02559EAF1C60955000D82D2C /* roommate-cli in Resources */,
+				02304E8A1C62A44100931B91 /* phillip.quicklook001.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

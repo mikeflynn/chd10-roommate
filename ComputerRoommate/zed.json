@@ -1,0 +1,33 @@
+{
+  "name": "zed",
+  "description": "He has lots of friends. Loves silk robes.",
+  "options": {
+    "icon": "zed.icns",
+    "greeting_happy": "\"Hey...*wink*\"",
+    "greeting_sad": "\"I've been a bad boy.\"",
+    "greeting_angry": "\"You've been naughty!\""
+  },
+  "events": {
+    "wallpaper": [
+      "zed.wallpaper.jpg"
+    ],
+    "notify": [
+      "[greeting_happy] \"I'm having some people over tonight.\" [icon]",
+      "[greeting_happy] \"Would you care if I got a dog? Like a really big dog?\" [icon]",
+      "[greeting_angry] \"My mistress told me to tell you that I'VE BEEN A VERY BAD BABY!\" [icon]"
+    ],
+    "quicklook": [
+      "zed.quicklook001.jpg && notify [greeting_happy] \"I'm Zed's friend. You're out of mayonnaise. \" [icon]",
+      "zed.quicklook002.jpg && notify [greeting_happy] \"I just loaded up the diswasher and don't worry, your spoons are in there.\" [icon]"
+    ],
+    "brightness": [
+      "1 && notify [greeting_happy] \"Lets turn the lights off and see what happens!\" [icon]"
+    ],
+    "watch": [
+      "Safari 60 && notify [greeting_sad] \"I need to use the internet. I need to email my students back about their term papers.\" [icon]"
+    ],
+    "startaudio": [
+      "edm.mp3 && sleep 60 && stopaudio"
+    ]
+  }
+}

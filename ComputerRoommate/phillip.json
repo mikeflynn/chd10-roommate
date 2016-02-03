@@ -1,0 +1,33 @@
+{
+  "name": "phillip",
+  "description": "He's quiet. He keeps to himself. He's on the internet a lot.",
+  "options": {
+    "icon": "phillip.icns",
+    "greeting_happy": "\"Hi.\"",
+    "greeting_sad": "\"Oh, hey.\"",
+    "greeting_angry": "\"Excuse me.\""
+  },
+  "events": {
+    "wallpaper": [
+      "phillip.wallpaper.png"
+    ],
+    "notify": [
+      "[greeting_sad] \"Do you know how to get blood out of Oxford shirts?\" [icon]",
+      "[greeting_happy] \"Did you hear me playing that video game that makes all the realistic screaming sounds? Well it was a game.\" [icon]",
+      "[greeting_angry] \"I'm trying to study! KEEP IT DOWN OR I'LL KILL YOU!\" [icon]"
+    ],
+    "quicklook": [
+      "phillip.quicklook001.jpg && notify [greeting_happy] \"Do you like Huey Lewis and The News?\" [icon]",
+      "phillip.quicklook002.jpg && notify [greeting_happy] \"Which movie should we watch? You pick!\" [icon]"
+    ],
+    "brightness": [
+      "100 && notify [greeting_angry] \"Can I get some light in here? I'm having a hard time reading.\" [icon]"
+    ],
+    "watch": [
+      "Safari 60 && notify [greeting_angry] \"I need to use the internet...it's about ethics in gaming journalism!\" [icon]"
+    ],
+    "startaudio": [
+      "edm.mp3 && sleep 60 && stopaudio"
+    ]
+  }
+}
