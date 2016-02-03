@@ -31,6 +31,8 @@ func main() {
 	Debug = flag.Bool("v", false, "Adds more verbose messaging to std out.")
 	flag.Parse()
 
+	rand.Seed(time.Now().UTC().UnixNano())
+
 	if *StartRepl {
 		go watchPs()
 		repl()

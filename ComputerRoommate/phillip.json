@@ -13,7 +13,7 @@
     ],
     "notify": [
       "[greeting_sad] \"Do you know how to get blood out of Oxford shirts?\" [icon]",
-      "[greeting_happy] \"Did you hear me playing that video game that makes all the realistic screaming sounds? Well it was a game.\" [icon]",
+      "[greeting_happy] \"That was me screaming last night...ok?\" [icon]",
       "[greeting_angry] \"I'm trying to study! KEEP IT DOWN OR I'LL KILL YOU!\" [icon]"
     ],
     "quicklook": [

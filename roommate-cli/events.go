@@ -133,6 +133,8 @@ var EventList map[string]*Event = map[string]*Event{
 			var filePath string
 			var err error
 
+			rand.Seed(time.Now().UTC().UnixNano())
+
 			if len(args) == 0 {
 				return "Not enough arguments."
 			} else if len(args) == 1 {
@@ -332,6 +334,7 @@ func RandomEvent() (string, *Event) {
 		keys = append(keys, k)
 	}
 
+	rand.Seed(time.Now().UTC().UnixNano())
 	rk := rand.Intn(len(keys) - 1)
 	return keys[rk], EventList[keys[rk]]
 }

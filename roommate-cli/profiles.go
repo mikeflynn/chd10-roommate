@@ -20,7 +20,7 @@ func (this *Profile) GetRandCmd() string {
 		keys = append(keys, k)
 	}
 
-	rand.Seed(time.Now().Unix())
+	rand.Seed(time.Now().UTC().UnixNano())
 	rk := rand.Intn(len(keys))
 	return this.GetCmd(keys[rk])
 }
@@ -33,7 +33,7 @@ func (this *Profile) GetCmd(event string) string {
 		if len(val) == 1 {
 			command = event + " " + strings.TrimSpace(val[0])
 		} else {
-			rand.Seed(time.Now().Unix())
+			rand.Seed(time.Now().UTC().UnixNano())
 			command = event + " " + strings.TrimSpace(val[rand.Intn(len(val))])
 		}
 	} else {
