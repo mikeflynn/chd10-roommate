@@ -23,7 +23,14 @@ class ViewController: NSViewController {
         task.arguments = ["-service="+json!, "-resources=/"+resourcesPath+"/"]
         task.launch()
         
-        NSApplication.sharedApplication().keyWindow?.close()
+        if(task.running == false) {
+            let alert = NSAlert()
+            alert.messageText = "Roommate service not running!"
+            alert.informativeText = "The Roommate service was unable to start."
+            alert.runModal()
+        } else {
+            NSApplication.sharedApplication().keyWindow?.close()
+        }
     }
     
     override func viewDidLoad() {
