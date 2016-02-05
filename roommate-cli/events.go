@@ -11,7 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/deckarep/gosx-notifier"
+	//"github.com/deckarep/gosx-notifier"
+	"github.com/yannk/gosx-notifier"
 )
 
 var WatchList map[string]*WatchApp = make(map[string]*WatchApp)

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Foundation
 
 class ViewController: NSViewController {
     
@@ -18,19 +19,26 @@ class ViewController: NSViewController {
         let resourcesPath = resourcesParts.joinWithSeparator("/")
         
         let path = NSBundle.mainBundle().pathForResource("roommate-cli", ofType: nil)
+        
         let task = NSTask()
         task.launchPath = path
         task.arguments = ["-service="+json!, "-resources=/"+resourcesPath+"/"]
-        task.launch()
         
-        if(task.running == false) {
-            let alert = NSAlert()
-            alert.messageText = "Roommate service not running!"
-            alert.informativeText = "The Roommate service was unable to start."
-            alert.runModal()
+        let filepath = "/tmp/roommate.log"
+        if (!NSFileManager.defaultManager().createFileAtPath(filepath, contents: nil, attributes: nil)) {
+            print("could not create file")
+        } else if let theHandle = NSFileHandle(forWritingAtPath: filepath) {
+            theHandle.writeData("Starting roommate log...\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            task.standardOutput = theHandle
+            task.standardError = theHandle
+            
+            task.launch()
+            //theHandle.closeFile()
         } else {
-            NSApplication.sharedApplication().keyWindow?.close()
+            print("could not open file")
         }
+        
+        NSApplication.sharedApplication().keyWindow?.close()
     }
     
     override func viewDidLoad() {
